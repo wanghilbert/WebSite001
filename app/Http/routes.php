@@ -19,8 +19,26 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/userInfo', 'UserInfoController@show');
 
-Route::get('/registerUser', 'UserInfoController@registerUser');
+/**
+ * User Management
+ */
+// Route::get('/user/userInfo', 'UserController@userInfo');
 
+Route::get('/user/registerUser', 'UserController@registerUser');
 
+Route::get('/user/show', 'UserController@show');
+
+Route::delete('/user/delete/{user}', 'UserController@delete');
+
+Route::get('/user/edit/permission/{user}', 'UserController@permission');
+
+Route::get('/user/edit/pwd/{user}', 'UserController@password');
+/**
+ * Resource Management
+ */
+Route::get('/res/show', 'ResController@show');
+
+Route::delete('/res/delete/{res}', 'ResController@delete');
+
+Route::post('/res/edit/{res}', 'ResController@edit');
