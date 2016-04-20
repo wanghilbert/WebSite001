@@ -40,6 +40,46 @@
                                                 </button>
                                             </form>
                                         </td>
+                                        <td>
+                                            <form action="/user/edit/permission/{{ $user->id }}" method="POST">
+                                                {{ csrf_field() }}
+                                                <div>
+                                                    <select name="PermType">
+                                                        <option value="Normal">Normal</option>
+                                                        <option value="Admin">Admin</option>
+                                                        <option value="Super">Super</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <button type="submit" id="permission-user-{{ $user->id }}" class="btn btn-danger">
+                                                        <i class="fa fa-btn fa-trash"></i>Permission
+                                                    </button>                                                    
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/user/edit/pwd/{{ $user->id }}" method="POST">
+                                                {{ csrf_field() }}
+                                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                                    <label class="col-md-4 control-label">Pwd</label>
+
+                                                    <div class="col-md-6">
+                                                        <input type="password" class="form-control" name="password">
+
+                                                        @if ($errors->has('password'))
+                                                            <span class="help-block">
+                                                                <strong>{{ $errors->first('password') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                </div> 
+                                                <div>
+                                                    <button type="submit" id="password-user-{{ $user->id }}" class="btn btn-danger">
+                                                        <i class="fa fa-btn fa-trash"></i>Password
+                                                    </button>                                                    
+                                                </div>                   
+                                            </form>
+                                        </td>
 
                                         <!-- TO DO: User Delete Button -->
 

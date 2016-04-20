@@ -19,24 +19,4 @@ class UserPolicy
     {
         //
     }
-
-    public function show(User $user)
-    {
-        return $user->permission === 'Super';
-    }
-
-    public function delete(User $user)
-    {
-        return $user->permission === 'Super';
-    }
-
-    public function permission(User $user)
-    {
-        return $user->permission === 'Super';
-    }
-
-    public function password(User $user)
-    {
-        return $user->permission === 'Super';
-    }
 }

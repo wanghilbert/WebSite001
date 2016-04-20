@@ -31,14 +31,22 @@ Route::get('/user/show', 'UserController@show');
 
 Route::delete('/user/delete/{user}', 'UserController@delete');
 
-Route::get('/user/edit/permission/{user}', 'UserController@permission');
+Route::post('/user/edit/permission/{user}', 'UserController@permission');
 
-Route::get('/user/edit/pwd/{user}', 'UserController@password');
+Route::post('/user/edit/pwd/{user}', 'UserController@password');
 /**
  * Resource Management
  */
+Route::get('/res/index', 'ResController@index');
+
+Route::get('/res/edit', 'ResController@editIndex');
+
 Route::get('/res/show', 'ResController@show');
+
+Route::post('/res/add', 'ResController@add');
 
 Route::delete('/res/delete/{res}', 'ResController@delete');
 
-Route::post('/res/edit/{res}', 'ResController@edit');
+Route::get('/res/edit/{res}', 'ResController@editPage');
+
+Route::post('/res/edit/update/{res}', 'ResController@update');

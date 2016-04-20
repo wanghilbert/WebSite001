@@ -20,7 +20,11 @@ class UserController extends Controller
     {
     	$this->users = $users;
 
-        $this->middleware('super');
+        $this->middleware('super', [
+                'except' => [
+                    'registerUser'
+                ]
+            ]);
         // $this->middleware('auth', [
         //     'except' => [
         //         'registerUser',
@@ -63,7 +67,7 @@ class UserController extends Controller
 
     public function permission(Request $request, User $user)
     {
-        $user->password = bcrypt($request->password);
+        $user->permission = $request->PermType;
         $user->save();
 
         return redirect('/user/show');
@@ -72,7 +76,7 @@ class UserController extends Controller
     public function password(Request $request, User $user)
     {
         $this->validate($request, [
-                'password' => 'required|min:6|confirmed',
+                'password' => 'required|min:6',
             ]);
 
         $user->password = bcrypt($request->password);
