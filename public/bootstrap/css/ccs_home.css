@@ -1,0 +1,63 @@
+.userlink:hover,
+.userlink:focus
+{
+	color: #FFB647;
+}
+.userlinkfoot
+{
+	color: white;
+}
+.userlinkfoot:hover,
+.userlinkfoot:focus
+{
+	color: #FFB647;
+	text-decoration: none;
+}	
+
+.classbutton
+{
+	color: #555;
+	border-color: #555;
+	border-style:solid;
+	border-width:2px;  
+	
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	
+	padding-top: 5px;
+	padding-left: 35px;
+	padding-right: 35px;
+	padding-bottom: 5px; 
+		
+}
+.classbutton:hover,
+.classbutton:focus
+{
+	color: #FFB647;
+	border-color:#FFB647;
+	text-decoration: none;
+}
+.usercol03{
+	padding: 5px 5px 5px 5px;
+}
+
+.textOnImg{
+	background-color: #FFB647;
+	opacity: 0.9;
+	
+	color: white;
+	font-size: small;
+	font-weight: 300;
+	
+	margin: 0 auto;
+	text-align: center;
+	
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: relative;
+	z-index: 2; 
+	height: 60px;
+	margin-top:-60px;
+}
