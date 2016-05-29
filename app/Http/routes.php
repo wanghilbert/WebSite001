@@ -50,3 +50,10 @@ Route::delete('/res/delete/{res}', 'ResController@delete');
 Route::get('/res/edit/{res}', 'ResController@editPage');
 
 Route::post('/res/edit/update/{res}', 'ResController@update');
+
+// Excel Data
+Route::get('/excel/index', 'ExcelController@index');
+
+Route::post('/excel/export', 'ExcelController@export');
+
+Route::get('/index', 'ResController@test');

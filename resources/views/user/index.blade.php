@@ -22,6 +22,8 @@
                                 <th>AccountType</th>
                                 <th>Permission</th>
                                 <th>Delete</th>
+                                <th>Permission Edit</th>
+                                <th>Password Edit</th>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
@@ -44,7 +46,7 @@
                                             <form action="/user/edit/permission/{{ $user->id }}" method="POST">
                                                 {{ csrf_field() }}
                                                 <div>
-                                                    <select name="PermType">
+                                                    <select name="PermType" class="form-control">
                                                         <option value="Normal">Normal</option>
                                                         <option value="Admin">Admin</option>
                                                         <option value="Super">Super</option>
@@ -52,7 +54,7 @@
                                                 </div>
                                                 <div>
                                                     <button type="submit" id="permission-user-{{ $user->id }}" class="btn btn-danger">
-                                                        <i class="fa fa-btn fa-trash"></i>Permission
+                                                        <i class="fa fa-btn fa-trash"></i>Confirm
                                                     </button>                                                    
                                                 </div>
                                             </form>
@@ -60,10 +62,9 @@
                                         <td>
                                             <form action="/user/edit/pwd/{{ $user->id }}" method="POST">
                                                 {{ csrf_field() }}
-                                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                    <label class="col-md-4 control-label">Pwd</label>
+                                                <!-- <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}"> -->
 
-                                                    <div class="col-md-6">
+                                                    <div>
                                                         <input type="password" class="form-control" name="password">
 
                                                         @if ($errors->has('password'))
@@ -72,7 +73,7 @@
                                                             </span>
                                                         @endif
                                                     </div>
-                                                </div> 
+                                                <!-- </div>  -->
                                                 <div>
                                                     <button type="submit" id="password-user-{{ $user->id }}" class="btn btn-danger">
                                                         <i class="fa fa-btn fa-trash"></i>Password
