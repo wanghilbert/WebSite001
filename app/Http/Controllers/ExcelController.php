@@ -60,4 +60,12 @@ class ExcelController extends Controller
 
 		return redirect('/excel/index');
 	}
+
+	public function importFile()
+	{
+		$fileName = 'file.xls'
+		Excel::load($fileName, function($reader){
+			
+		});
+	}
 }

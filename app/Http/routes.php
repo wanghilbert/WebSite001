@@ -57,3 +57,6 @@ Route::get('/excel/index', 'ExcelController@index');
 Route::post('/excel/export', 'ExcelController@export');
 
 Route::get('/index', 'ResController@test');
+
+// Test
+Route::get('/test', 'ResController@testLogin');

@@ -28,7 +28,8 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/index';
+    protected $redirectAfterLogout = '/index';
 
     /**
      * Use the $username to login

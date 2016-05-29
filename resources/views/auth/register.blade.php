@@ -49,6 +49,10 @@
                                     </span>
                                 @endif
                             </div>
+
+<!--                             <div class="col-md-6">
+                                <input type="file" class="form-control" name="fileName">
+                            </div> -->
                         </div>
 
                         <div class="form-group">
