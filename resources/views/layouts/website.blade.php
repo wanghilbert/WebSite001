@@ -46,7 +46,42 @@
 					return $("#popover-content").html();
 				}
 			})
-		});
+			$("#username").keydown(function(event){
+				if(event.which=="13") //回车键
+				{
+					$("#passwd").focus();
+				}
+			})
+			$("#passwd").keydown(function(event){
+				if(event.which=="13")
+				{
+					$("btnLogin").trigger("click");
+				}
+			})
+			$("#btnLogin").click(function(){	//登录按钮单击事件
+				var strUsername=encodeURI($("#username").val());
+				var strPassword=encodeURI($("#passwd").val());
+				var strRemember=encodeURI($("#ckbRem").val());
+				
+				$.ajax(
+					{
+						url:;
+						dataType: "html";
+						data:{username: strUsername, password:strPassword,ckbRem:strRemember};
+						success: function(strValue){
+							if(strValue=="True")
+							{
+								$("#showText").html("登录成功！"+strValue);
+							}
+							else
+							{
+								$("#showText").html("用户名或密码错误！"+strValue);																
+							}
+						}
+					}
+				)
+			})
+		});	
 	</script>	
 </head>
 <body>
@@ -66,8 +101,16 @@
 				<div>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#"><span class="userlink">我的订单</span></a></li>
-						<li><a href="#"><span class="userlink">登录</span></a></li>
-						<li><a href="#"><span class="userlink">注册</span></a></li>
+
+						@if (Auth::guest())
+	                        <li><a href="{{ url('/login') }}"><span class="userlink">登录</span></a></li>
+	                        <li><a href="#"><span class="userlink">注册</span></a></li>
+                    	@else
+	                        <li>
+	                        	<a href="{{ url('/login') }}"><span class="userlink">{{ Auth::user()->name }}</span></a>
+	                        </li>
+	                        <li><a href="{{ url('/logout') }}"><span class="userlink">注销</span></a></li>
+                    	@endif	
 						<li><a href="#"><span class="userlink">联系客服</span></a></li>
 					</ul>
 				</div>
