@@ -1,18 +1,3 @@
-.userlink:hover,
-.userlink:focus
-{
-	color: #FFB647;
-}
-.userlinkfoot
-{
-	color: white;
-}
-.userlinkfoot:hover,
-.userlinkfoot:focus
-{
-	color: #FFB647;
-	text-decoration: none;
-}	
 
 .classbutton
 {

@@ -1,0 +1,118 @@
+ol, ul { list-style: none ; padding: 0;}
+body { overflow-x: hidden; min-width: 75pc; background: #FFFFFF; font-size: 14px; font-family: "微软雅黑", Lucida Grande, Lucida Sans, Helvetica, Arial, Sans }
+a { outline: 0; border: none; text-decoration: none;}
+a:link,a:visited,a:active,a:hover,
+a:focus { text-decoration: none; }
+
+.fl { float: left }
+.fr { float: right }
+
+.userlink:hover,
+.userlink:focus
+{
+	color: #FFB647;
+}
+.userlinkfoot
+{
+	color: white;
+}
+.userlinkfoot:hover,
+.userlinkfoot:focus
+{
+	color: #FFB647;
+	text-decoration: none;
+}
+/*13*/
+.clearFix:after { content: "."; display: block; height: 0; visibility: hidden; clear: both }
+.clearFix { zoom: 1 }
+/*20*/
+.f_orange { color: #ff6602 }
+.f_12 { font-size: 9pt }
+.f_16 { font-size: 1pc }
+.f_18 { font-size: 18px }
+.f_24 { font-size: 24px }
+.f_28 { font-size: 28px }
+.f_30 { font-size: 30px }
+.f_36 { font-size: 36px }
+/*40*/
+.bg_orange { background: #ff6602 }
+.bg_lightgrey{background:#f9f9f9;}
+/*101*/
+.wray { width: 75pc; margin: 0 auto; min-height: 500px }
+/*147*/
+.tab_img_2 { position: absolute; left: -15pc; top: -15pc; width: 600px; height: 600px; text-align: center }
+/*318*/
+.goods { margin-top: 15px }
+.goods_1 { width: 900px }
+.goods_header { width: 898px; background: #fff; border: 1px solid #e5e5e5; height: 330px; margin-bottom: 15px; position: relative;overflow:hidden; }
+.goods_header:hover { box-shadow: 0 0 20px rgba(0,0,0,.1) }
+.goods_left { width: 298px; height: 330px; background: #fff; position: relative; }
+.xq_top_right { line-height: 40px; margin: 20px 0; width:130px; overflow:hidden;}
+.xq_top_right h3 { font-size: 20px; font-weight: 700; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 100%; }
+.wxh_wary { font-size: 12px; cursor: pointer; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 100%; }
+.wxh { display: none; position: absolute; left: 20px; top: 15px; width: 120px; height: 120px; background: #fff; border: 1px solid #e5e5e5; overflow: hidden; z-index: 2000; }
+.goods_box2 { width: 600px; height: 330px; background: #fff; margin-top: 0; margin-left: 298px;}
+/*352*/
+.info { background: #fff; }
+.info_1 { line-height: 30px; margin: 0 0 0 20px; font-size: 9pt; color: #000000; }
+.info_3 { line-height: 30px; margin: 10px 20px; font-size: 9pt; color: #ff0000; }
+.info_1 h3 { margin-right: 20px; font-size: 20px; font-weight: 700 }
+.info_2 { margin: 10px 20px; line-height: 40px }
+.xyfp { line-height: 20px; margin-top: 15px; margin-left: 15px; font-size: 12px; color: #ff6602; cursor: pointer; position: relative; }
+.xyfp_box { display: none; position: absolute; left: 82px; top: -25px; width: 190px; padding: 10px; background: #ff6602; color: #FFF; line-height: 25px; font-size: 14px; -moz-box-shadow: 3px 3px 4px rgba(0,0,0,0.3); -webkit-box-shadow: 3px 3px 4px rgba(0,0,0,0.3); box-shadow: 3px 3px 4px rgba(0,0,0,0.3); }
+.xyfp_sanjiao { position: absolute; left: -20px; top: 25px; height: 0; width: 0; border: 10px solid #ff6602; border-color: transparent #ff6602 transparent transparent; }
+/*372*/
+.f_list li { float: left; border: 1px solid #e5e5e5; margin-right: 10px }
+.f_list li a { padding: 10px 5px; line-height: 20px; color: #666 }
+.info_button { margin: 0 20px; text-align: center }
+.info_button a { line-height: 38px; height: 38px; display: block; font-size: 1pc }
+.info_button_1 { width: 140px; color: #fff; background: #ff6602 }
+.info_button_1:hover { background: #f30; color: #fff }
+.info_button_1, .info_button_2 { text-align: center; border: 1px solid #ff6602; margin-right: 10px; cursor: pointer }
+.info_button_2 { width: 90pt; color: #ff6602; background: #fff }
+.info_button_2:hover { background: #ffe4d0 url(../images/ico_gw.png) 15px -359px no-repeat }
+li.list_active { border: 1px solid #ff6602; background: url(../images/ico_gw.png) right -26pc no-repeat }
+/*406*/
+.tongji { height: 40px; text-align: center }
+.tongji h4 { line-height: 20px; font-size: 14px; color: #333; font-weight: 400 }
+.tongji p { line-height: 20px; font-size: 9pt; color: #999 }
+.tongji_1 { margin-left: 10px; padding-left: 10px; border-left: 1px solid #e5e5e5 }
+.sm { line-height: 25px; font-size: 9pt; color: #999; margin: 10px 20px }
+.sm a { color: #ff6602; margin: 10px }
+.sm a:hover { text-decoration: underline }
+
+/*413*/
+.xq_topleft { width: 297px; border-right: 1px solid #e5e5e5; height: 330px; overflow: hidden; position: absolute; top: 0; left: 0; background: #fff; z-index: 1100 }
+.xq_img { width: 90pt; height: 90pt; overflow: hidden; border-radius: 50%; margin: 15px 20px; position: relative }
+.xq_ul li h2 { width: 70%; height: 60px; line-height: 20px; overflow: hidden }
+.xq_img img { width: 100%; height: 100% }
+.xq_top { line-height: 20px; position: relative; }
+.xq_ul li { line-height: 20px; background: #fff; float: left; width: 148px; text-align: center; border-top: 1px solid #e5e5e5; height: 89px; color: #666; position: relative }
+.xq_ul_xian { height: 89px; width: 1px; background: #e5e5e5; position: absolute; right: 0; top: 0 }
+.xq_ul_sd { font-size: 28px; line-height: 35px; padding-top: 15px; display: block }
+.xq_ul_sx { line-height: 25px; display: block; font-size: 9pt }
+.xq_span { margin-right: 10px; padding: 2px 5px; color: #000000 }
+
+/*525*/
+.company { width: 100%; margin-top: 10px }
+.company_name {width:25%;color: #ccc; background: #fff }
+.company_name li { text-align: center; height: 50px; line-height: 50px; font-size: 1pc; border-bottom: 1px dashed #e5e5e5; cursor: pointer; position: relative; padding-left: 20px }
+.company_name li i { margin-right: 10px }
+.company_name li:hover { background: #ffd46c; color: #fff }
+.company_name li.current { background: #ff6602; color: #fff }
+.company_box { width:75%;background: #fff }
+.company_box_1, .company_box_2, .company_box_3, .company_box_4 { border-left: 1px solid #e5e5e5; min-height: 25pc; padding: 20px 40px; box-shadow: -2px 0 5px rgba(0,0,0,.1) }
+.company_box h2 { line-height: 40px; height: 40px; margin-bottom: 10px; font-size: 24px; text-align: center }
+.company_box h3 { color: #ff6602; font-weight: 700 }
+.company_box h3, .company_box h4 { line-height: 50px; height: 50px; font-size: 18px }
+.company_box h4 span { font-size: 24px; margin-right: 10px; color: #ff6602 }
+.company_box p { color: #666; font-size: 1pc; line-height: 30px }
+
+.info_name {width:25%;color: #0F0F0F; background: #fff }
+.info_name li{ height: 60px;line-height: 30px; font-size:0.8 pc; border-bottom: 1px dashed #e5e5e5; cursor: pointer; position: relative;  }
+.info_name li:hover { background: #ffd46c; color: #fff }
+.info_name li.current { color: #777777 }
+
+/*542*/
+
+.sanjiaoxing { height: 0; width: 0; border: 25px solid #FFFFFF; border-color: transparent transparent transparent #FFFFFF; position: absolute; left: 0; top: 0 }
