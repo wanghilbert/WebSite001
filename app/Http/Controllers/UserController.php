@@ -8,11 +8,13 @@ use Validator;
 use App\Http\Requests;
 use App\Repositories\UserRepository;
 use App\User;
+use App\Model\News;
 use Crypt;
 
 class UserController extends Controller
 {
-    protected $redirectTo = '/user/show';
+
+    protected $redirectTo = '/home';
 	protected $users;
     //
     //
@@ -20,17 +22,11 @@ class UserController extends Controller
     {
     	$this->users = $users;
 
-        $this->middleware('super', [
-                'except' => [
-                    'registerUser'
-                ]
-            ]);
-        // $this->middleware('auth', [
-        //     'except' => [
-        //         'registerUser',
-        //         'show'
-        //     ]
-        // ]);
+        // $this->middleware('super', [
+        //         'except' => [
+        //             'registerUser'
+        //         ]
+        //     ]);
     }
 
     /**
@@ -39,25 +35,27 @@ class UserController extends Controller
     public function registerUser(Request $request)
     {
         $this->validate($request, [
-                'name' => 'required|max:255|unique:users',
-                'password' => 'required|min:6',
+                'UserName' => 'required|max:255|unique:users',
+                'Password' => 'required|min:6',
             ]);
-        
         $user = new User;
-        $user->name = $request->name;
-        $user->password = bcrypt($request->password);
-        $user->permission = $request->permission;
+        $user->UserName = $request->UserName;
+        $user->Password = bcrypt($request->Password);
+
+        if ($request->exists('Permission')) {
+            $user->Permission = $request->Permission;
+        }
+
+        if ($request->exists('Type')) {
+            $user->Type = $request->Type;
+        }
+        
         $user->save();
 
         return redirect('/home')->withInput();
     }
 
-    public function show(Request $request)
-    {
-        return view('user.index', ['users' => $this->users->getAll()]);
-    }
-
-
+    // Delete a user
     public function delete(Request $request, User $user)
     {
         $user->delete();
@@ -65,14 +63,18 @@ class UserController extends Controller
         return redirect('/user/show');
     }
 
+    // Change the permission of user
     public function permission(Request $request, User $user)
     {
-        $user->permission = $request->PermType;
+        if ($request->exists('Permission')) {
+            $user->Permission = $request->Permission;
+        }
         $user->save();
 
         return redirect('/user/show');
     }
 
+    // Change the Password of User
     public function password(Request $request, User $user)
     {
         $this->validate($request, [
@@ -83,5 +85,19 @@ class UserController extends Controller
         $user->save();
 
         return redirect('/user/show');        
+    }
+
+    // Show users
+    public function show()
+    {
+        return view('user.index', ['users' => $this->users->getAll()]);
+    }
+
+    // Get news list
+    public function newsList(User $user)
+    {
+        $news = $user->news;
+        dd($news);
+        return view('user.news', ['news' => $news]);
     }
 }

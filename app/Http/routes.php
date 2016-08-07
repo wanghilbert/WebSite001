@@ -60,3 +60,5 @@ Route::get('/index', 'ResController@test');
 
 // Test
 Route::get('/test', 'ResController@testLogin');
+
+Route::post('/file', 'NewsController@testStoreFile');
