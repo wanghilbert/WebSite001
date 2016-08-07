@@ -60,7 +60,9 @@ Route::get('/index', 'ResController@test');
 
 // Test
 Route::get('/test', 'ResController@testLogin');
+
 //yw test
 Route::get('/yw_test',  function () {
     return view('basicStruct');
 });
+

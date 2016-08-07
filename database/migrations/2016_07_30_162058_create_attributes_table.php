@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatisticsTable extends Migration
+class CreateAttributesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,20 +12,16 @@ class CreateStatisticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('statistics', function (Blueprint $table) {
+        Schema::create('attributes', function (Blueprint $table) {
             $table->increments('ID');
             $table->integer('ResId')->unsigned();
-            $table->integer('FansNum')->unsigned();
-            $table->decimal('CostEffective', 5, 2);
-            $table->integer('CollectedNum')->unsigned();
-            $table->integer('AvgViewNum')->unsigned();
+            $table->text('Introduction');
+            $table->text('Addition');      
+            $table->integer('CollectedNum')->unsigned();         
             $table->integer('SumViewNum')->unsigned();
             $table->integer('SumUpNum')->unsigned();
             $table->integer('PurchaseNum')->unsigned();
             $table->integer('CommentsNum')->unsigned();
-            $table->integer('DeliveryRatio')->unsigned();
-            $table->integer('Credit')->unsigned();
-
             $table->foreign('ResId')->references('ResId')->on('resources');
             $table->timestamps();
         });
@@ -38,6 +34,6 @@ class CreateStatisticsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('statistics');
+        Schema::drop('attributes');
     }
 }

@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('UserId');
             $table->string('UserName')->unique();
-            $table->enum('type', ['Normal', 'QQ', 'WeChat'])->default('Normal');
+            $table->enum('Type', ['Normal', 'QQ', 'WeChat'])->default('Normal');
             $table->string('Password');
             $table->enum('Permission', ['Normal', 'Admin', 'Super'])->default('Normal');
             $table->rememberToken();
