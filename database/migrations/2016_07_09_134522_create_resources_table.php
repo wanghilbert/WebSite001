@@ -16,15 +16,19 @@ class CreateResourcesTable extends Migration
             $table->increments('ResId');
             $table->string('Name')->unique();
             $table->string('HeadPic');
+            $table->string('SmallPic');
             $table->string('WeChat');
             $table->string('QQ');
             $table->string('Region');
-            $table->text('Introduction');
-            $table->string('Tags');
+            $table->boolean('AuthByWeChat');
+            $table->integer('AvgViewNum')->unsigned();
+            $table->integer('FansNum')->unsigned();
             $table->decimal('HeadLinePrice', 10, 2);
             $table->decimal('NonHeadLinePrice', 10, 2);
-            $table->text('Addition');
-            $table->boolean('AuthByWeChat');
+            $table->decimal('CostEffective', 5, 2);
+            $table->integer('DeliveryRatio')->unsigned();
+            $table->integer('Credit')->unsigned();
+
             $table->timestamps();
         });
     }

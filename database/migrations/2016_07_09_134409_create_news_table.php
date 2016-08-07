@@ -16,7 +16,6 @@ class CreateNewsTable extends Migration
             $table->increments('NewsId');
             $table->integer('UserId')->unsigned();
             $table->string('Title');
-            $table->dateTime('CreatedDate');
             $table->string('Tags');
             $table->string('Link');
             $table->string('Pic');

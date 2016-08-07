@@ -13,7 +13,6 @@ class CreateAppointmentsTable extends Migration
     public function up()
     {
         Schema::create('appointments', function (Blueprint $table) {
-            $table->increments('ID');
             $table->integer('UserId')->unsigned();
             $table->integer('ResId')->unsigned();
             $table->date('Date');
