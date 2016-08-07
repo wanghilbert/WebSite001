@@ -14,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'UserName', 'Type', 'Password', 'Permission'
+        'UserName', 'Type', 'password', 'Permission'
     ];
 
     /**
@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'Password', 'remember_token',
+        'password', 'remember_token',
     ];
 
     // public function resources()
@@ -33,15 +33,7 @@ class User extends Authenticatable
     
     public function news()
     {
-        return $this->hasMany('App\Model\News', 'UserId', 'UserId');
-    }
-
-    public function resselections() {
-        return $this->belongsToMany('App\Model\Resouce', 'App\Model\Selection', 'UserId', 'ResId')->withPivot('Option', 'Price');
-    }
-
-    public function rescomments() {
-        return $this->belongsToMany('App\Model\Resource', 'App\Model\Comment', 'UserId', 'ResId')->withPivot('Comment');
+        return $this->hasMany('App\Model\News', 'UserId', 'id');
     }
 
     // Relationship with resources
@@ -75,9 +67,10 @@ class User extends Authenticatable
 
     public function appoint($userId, $resId, $date) {
         $user = $this->find($userId);
-        $user->resappointment()->attach($resId, ['Date' => $date])
+        $user->resappointment()->attach($resId, ['Date' => $date]);
     }
 
     public function showComments($userId) {
-        
+        return;
     }
+}

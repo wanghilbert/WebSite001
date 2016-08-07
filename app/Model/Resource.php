@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ use App\Model\Attribute;
 use App\Model\Article;
 use App\Model\Tag;
 
-use App\Http\Requests;
+use Request;
 
 class Resource extends Model
 {
@@ -66,12 +66,12 @@ class Resource extends Model
 
     // File Upload
     // Return fileName
-    public static function uploadImg(Request $request, $field) {
+    public static function uploadImg($request, $field) {
     	if ($request->hasFile($field)) {
     		$pic = $request->file($field);
     		if ($pic->isValid()) {
     			$newname = $pic->hashName();
-    			$pic->move($dst, $filename);
+    			$pic->move('head', $newname);
     			return $newname;
     		}
     	}

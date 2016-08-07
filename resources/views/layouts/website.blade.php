@@ -104,10 +104,10 @@
 
 						@if (Auth::guest())
 	                        <li><a href="{{ url('/login') }}"><span class="userlink">登录</span></a></li>
-	                        <li><a href="#"><span class="userlink">注册</span></a></li>
+	                        <li><a href="{{ url('/register') }}"><span class="userlink">注册</span></a></li>
                     	@else
 	                        <li>
-	                        	<a href="{{ url('/login') }}"><span class="userlink">{{ Auth::user()->name }}</span></a>
+	                        	<a href="{{ url('/login') }}"><span class="userlink">{{ Auth::user()->UserName }}</span></a>
 	                        </li>
 	                        <li><a href="{{ url('/logout') }}"><span class="userlink">注销</span></a></li>
                     	@endif	
@@ -192,15 +192,6 @@
 			</div>
 		</div>
 		<!--end of <div class="row" id="footbar"> -->
-	</div>
-	<div>
-		<form enctype="multipart/form-data" action="/file" method="post">
-		{{ csrf_field() }}
-		<label for="file">Filename:</label>
-		<input type="file" name="fileData" id="file" /> 
-		<br />
-		<input type="submit" name="submit" value="Submit" />
-		</form>
 	</div>
 
 </body>

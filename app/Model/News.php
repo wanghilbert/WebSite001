@@ -1,14 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+
+use Request;
 
 use App\User;
 
 class News extends Model
 {
-	private $dst = 'news';
     protected $fillable = [
     	'UserId',
     	'Title',
@@ -19,17 +20,17 @@ class News extends Model
     ];
     //
     public function user() {
-    	return $this->belongsTo('App\User', 'UserId', 'UserId');
+    	return $this->belongsTo('App\User', 'UserId', 'id');
     }
 
     // File Upload
     // Return fileName
-    public static function uploadImg(Request $request, $field) {
+    public static function uploadImg($request, $field) {
     	if ($request->hasFile($field)) {
     		$pic = $request->file($field);
     		if ($pic->isValid()) {
     			$newname = $pic->hashName();
-    			$pic->move($dst, $filename);
+    			$pic->move('news', $newname);
     			return $newname;
     		}
     	}
