@@ -193,5 +193,15 @@
 		</div>
 		<!--end of <div class="row" id="footbar"> -->
 	</div>
+	<div>
+		<form enctype="multipart/form-data" action="/file" method="post">
+		<?php echo e(csrf_field()); ?>
+
+		<label for="file">Filename:</label>
+		<input type="file" name="fileData" id="file" /> 
+		<br />
+		<input type="submit" name="submit" value="Submit" />
+		</form>
+	</div>
 
 </body>
