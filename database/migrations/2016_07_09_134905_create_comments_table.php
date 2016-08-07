@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->integer('ResId')->unsigned();
             $table->string('Comment');
 
-            $table->foreign('UserId')->references('UserId')->on('users');
+            $table->foreign('UserId')->references('id')->on('users');
             $table->foreign('ResId')->references('ResId')->on('resources');
             $table->timestamps();
         });
