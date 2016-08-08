@@ -34,6 +34,7 @@ class UserController extends Controller
      */
     public function registerUser(Request $request)
     {
+        dd($request->all());
         $this->validate($request, [
                 'UserName' => 'required|max:255|unique:users',
                 'Password' => 'required|min:6',
@@ -100,4 +101,5 @@ class UserController extends Controller
         dd($news);
         return view('user.news', ['news' => $news]);
     }
+
 }
