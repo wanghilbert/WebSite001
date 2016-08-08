@@ -29,6 +29,9 @@ class UserController extends Controller
         //     ]);
     }
 
+    public function registerIndex() {
+        return view('user.register');
+    }
     /**
      * Create User Manually
      */
@@ -37,11 +40,16 @@ class UserController extends Controller
         dd($request->all());
         $this->validate($request, [
                 'UserName' => 'required|max:255|unique:users',
-                'Password' => 'required|min:6',
+                'password' => 'required|min:6',
             ]);
+
+        if ($request->password != $request->password_confirmation) {
+            // TO_DO: Display Error Info.
+            return redirect('/register');
+        }
         $user = new User;
         $user->UserName = $request->UserName;
-        $user->Password = bcrypt($request->Password);
+        $user->password = bcrypt($request->password);
 
         if ($request->exists('Permission')) {
             $user->Permission = $request->Permission;
@@ -53,7 +61,7 @@ class UserController extends Controller
         
         $user->save();
 
-        return redirect('/home')->withInput();
+        return redirect('/index')->withInput();
     }
 
     // Delete a user

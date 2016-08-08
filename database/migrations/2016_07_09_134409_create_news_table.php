@@ -20,7 +20,7 @@ class CreateNewsTable extends Migration
             $table->string('Link');
             $table->string('Pic');
             $table->text('Content');
-            $table->foreign('UserId')->references('UserId')->on('users');
+            $table->foreign('UserId')->references('id')->on('users');
             $table->timestamps();
         });
     }

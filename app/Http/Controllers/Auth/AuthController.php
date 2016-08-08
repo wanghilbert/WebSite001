@@ -35,9 +35,9 @@ class AuthController extends Controller
      * Use the $username to login
      * @var string
      */
-    protected $username = 'name';
-/*    protected $lockoutTime = 60; // Lock Time
-    protected $maxLoginAttempts = 5; // Attempt Times*/
+    protected $username = 'UserName';
+    protected $lockoutTime = 60; // Lock Time
+    protected $maxLoginAttempts = 5; // Attempt Times
 
     /**
      * Create a new authentication controller instance.
@@ -58,7 +58,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255|unique:users',
+            'UserName' => 'required|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -72,7 +72,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'UserName' => $data['UserName'],
             'password' => bcrypt($data['password']),
         ]);
     }
