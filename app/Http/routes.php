@@ -45,6 +45,8 @@ Route::get('/res/show', 'ResController@show');
 
 Route::post('/res/add', 'ResController@add');
 
+
+
 Route::delete('/res/delete/{res}', 'ResController@delete');
 
 Route::get('/res/edit/{res}', 'ResController@editPage');
@@ -62,7 +64,9 @@ Route::get('/index', 'ResController@test');
 Route::get('/test', 'ResController@testLogin');
 
 //yw test
-Route::get('/yw_test',  function () {
-    return view('basicStruct');
+Route::get('/test/register',  function () {
+    return view('user.register');
 });
-
+Route::get('/test/create_wechat',  function () {
+    return view('res.adminWechatRes');
+});

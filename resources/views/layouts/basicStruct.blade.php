@@ -86,7 +86,7 @@
     </script>   
 </head>
 <body>
-    <div class="container" style="width: 800px;margin:0 auto;text-align: center;">
+    <div class="container" style="width: 800px;margin:0 auto;">
         <div class="row" id="menu-bar">
             <nav class="navbar navbar-default" role="navigation">
                 <div>
