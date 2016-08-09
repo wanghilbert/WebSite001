@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,9 +9,13 @@ use App\Model\Relation;
 
 class Tag extends Model
 {
+	protected $fillable = [
+		'Name'
+	];
     //
     public function resources() {
-    	return $this->belongsToMany('App\Model\Resource', 'App\Model\Relation', 'TagId', 'ResId')->withTimestamps();
+    	return $this->belongsToMany('App\Model\Resource', 'relations', 'TagId', 'ResId')->withTimestamps(); 
+        // The second arg is the name of database, not the model.
     }
 
     public function getRes($id) {

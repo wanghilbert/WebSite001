@@ -4,8 +4,10 @@
 	<div>
 	<h1>新建微信资源</h1>
 	<!--<form  method="POST" action="http://localhost:8000/res/add" accept-charset="UTF-8"> -->
-	<form method="GET" action="http://localhost:8000/user/registerUser" accept-charset="UTF-8">
-		<input name="_token" type="hidden">
+	<form enctype="multipart/form-data" method="POST" action="{{ url('/res/create') }}" accept-charset="UTF-8">
+		{!! csrf_field() !!}
+
+		{{-- <input name="_token" type="hidden"> --}}
 		<div class="form-group">
 			<label for="Name">微信名</label>
 			<input class="form-control" type="string" name="Name">

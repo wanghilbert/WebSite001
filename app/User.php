@@ -38,20 +38,20 @@ class User extends Authenticatable
 
     // Relationship with resources
     public function tags() {
-        return $this->belongsToMany('App\Model\Tag', 'App\Model\Relation', 'ResId', 'TagId')->withTimestamps();
+        return $this->belongsToMany('App\Model\Tag', 'relations', 'ResId', 'TagId')->withTimestamps();
     }
 
     // Relationship with User
     public function resappointment() {
-        $this->belongsToMany('App\Model\Resource', 'App\Model\Appointment', 'UserId', 'ResId')->withPivot('Date')->withTimestamps();
+        $this->belongsToMany('App\Model\Resource', 'appointments', 'UserId', 'ResId')->withPivot('Date')->withTimestamps();
     }
 
     public function resselections() {
-        return $this->belongsToMany('App\Model\Resource', 'App\Model\Selection', 'UserId', 'ResId')->withPivot('Option')->withTimestamps();
+        return $this->belongsToMany('App\Model\Resource', 'selections', 'UserId', 'ResId')->withPivot('Option')->withTimestamps();
     }
 
     public function rescomments() {
-        return $this->belongsToMany('App\Model\Resource', 'App\Model\Comment', 'UserId', 'ResId')->withPivot('Comment')->withTimestamps();
+        return $this->belongsToMany('App\Model\Resource', 'comments', 'UserId', 'ResId')->withPivot('Comment')->withTimestamps();
     }
 
     // Operation

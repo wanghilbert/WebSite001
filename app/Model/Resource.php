@@ -8,6 +8,7 @@ use App\Model\History;
 use App\Model\Attribute;
 use App\Model\Article;
 use App\Model\Tag;
+use App\Model\Relation;
 
 use Request;
 
@@ -31,6 +32,11 @@ class Resource extends Model
 		'Credit',
 		'Tags'
 	];
+
+    public function __construct()
+    {
+        $this->setKeyName('ResId');
+    }
     // Relationship with History One To One
     public function history() {
     	return $this->hasOne('App\Model\History', 'ResId', 'ResId');
@@ -48,20 +54,20 @@ class Resource extends Model
 
     // Relationship with Tags Many To Many
     public function tags() {
-        return $this->belongsToMany('App\Model\Tag', 'App\Model\Relation', 'ResId', 'TagId')->withTimestamps();
+        return $this->belongsToMany('App\Model\Tag', 'relations', 'ResId', 'TagId')->withTimestamps();
     }
 
     // Relationship with User
     public function userappointment() {
-        $this->belongsToMany('App\User', 'App\Model\Appointment', 'ResId', 'UserId')->withPivot('Date')->withTimestamps();
+        $this->belongsToMany('App\User', 'appointments', 'ResId', 'UserId')->withPivot('Date')->withTimestamps();
     }
 
     public function userselections() {
-        return $this->belongsToMany('App\User', 'App\Model\Selection', 'ResId', 'UserId')->withPivot('Option', 'Price')->withTimestamps();
+        return $this->belongsToMany('App\User', 'selections', 'ResId', 'UserId')->withPivot('Option', 'Price')->withTimestamps();
     }
 
     public function usercomments() {
-        return $this->belongsToMany('App\User', 'App\Model\Comment', 'ResId', 'UserId')->withPivot('Comment')->withTimestamps();
+        return $this->belongsToMany('App\User', 'comments', 'ResId', 'UserId')->withPivot('Comment')->withTimestamps();
     }
 
     // File Upload
@@ -109,7 +115,7 @@ class Resource extends Model
     	} else if ($high == 0) {
     		return $this->where('AvgViewNum', '>', $low)
     					->sort('Name')
-    					->all()
+    					->all();
     	} else {
 	    	return $this->whereIn('AvgViewNum', [$low, $high])
 	    				->sort('Name')
@@ -125,7 +131,7 @@ class Resource extends Model
     	} else if ($high == 0) {
     		return $this->where('FansNum', '>', $low)
     					->sort('Name')
-    					->all()
+    					->all();
     	} else {
 	    	return $this->whereIn('FansNum', [$low, $high])
 	    				->sort('Name')
@@ -150,7 +156,7 @@ class Resource extends Model
 	    	} else if ($high == 0) {
 	    		return $this->where('HeadLinePrice', '>', $low)
 	    					->sort('Name')
-	    					->all()
+	    					->all();
 	    	} else {
 		    	return $this->whereIn('HeadLinePrice', [$low, $high])
 		    				->sort('Name')
@@ -164,7 +170,7 @@ class Resource extends Model
 	    	} else if ($high == 0) {
 	    		return $this->where('NonHeadLinePrice', '>', $low)
 	    					->sort('Name')
-	    					->all()
+	    					->all();
 	    	} else {
 		    	return $this->whereIn('NonHeadLinePrice', [$low, $high])
 		    				->sort('Name')
