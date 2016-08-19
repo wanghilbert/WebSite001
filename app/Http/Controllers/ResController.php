@@ -106,6 +106,12 @@ class ResController extends Controller
         $res = Resource::filterByFans(2,100);
         dd($res);
     }
+
+    public function filterByTag()
+    {
+        $res = Tag::filterByTag(2);
+        dd($res);
+    }
     /**
      * Display a listing of the resource.
      *

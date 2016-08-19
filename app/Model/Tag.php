@@ -20,8 +20,8 @@ class Tag extends Model
         // The second arg is the name of database, not the model.
     }
 
-    public function getRes($id) {
-    	$tag = $this->find($id)->get();
-    	return $tag->resouces;
+    public static function filterByTag($id) {
+    	$tag = self::find($id);
+    	return $tag->resources()->get();
     }
 }
