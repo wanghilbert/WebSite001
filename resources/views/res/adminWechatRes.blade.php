@@ -13,6 +13,22 @@
 			<input class="form-control" type="string" name="Name">
 		</div>
 		<div class="form-group">
+			<label for="Link">链接</label>
+			<input class="form-control" type="string" name="Link">
+		</div>
+		<div class="form-group">
+			<label for="Desp">简介</label>
+			<input class="form-control" type="string" name="Desp">
+		</div>
+		<div class="form-group">
+			<label for="Tags">标签</label>
+			<input class="form-control" type="string" name="Tags">
+		</div>
+		<div class="form-group">
+			<label for="Addition">备注</label>
+			<input class="form-control" type="text" name="Addition">
+		</div>
+{{-- 		<div class="form-group">
 			<label for="HeadPic">微信头像</label>
 			<input class="form-control" type="string" name="HeadPic"> 
 			<!--头像可以是file类型
@@ -25,19 +41,19 @@
 			<!--缩略图可以是file类型
 			<input type="file" name="SmallPic"> 			
 			 -->
-		</div>
-		<div class="form-group">
+		</div> --}}
+{{-- 		<div class="form-group">
 			<label for="WeChat">微信号</label>
 			<input class="form-control" type="string" name="WeChat">
-		</div>
-		<div class="form-group">
+		</div> --}}
+{{-- 		<div class="form-group">
 			<label for="QQ">QQ号</label>
 			<input class="form-control" type="string" name="QQ">
 		</div>
 		<div class="form-group">
 			<label for="Region">显示区域</label>
 			<input class="form-control" type="string" name="Region">
-		</div>
+		</div> --}}
 		<div class="form-group">
 			<label for="AuthByWeChat">是否有微信授权</label>
 			<div>
@@ -45,10 +61,10 @@
 			</div>
 		</div>
 
-		<div class="form-group">
+{{-- 		<div class="form-group">
 			<label for="AvgViewNum">平均访问量</label>
 			<input class="form-control" type="integer" name="AvgViewNum">
-		</div>
+		</div> --}}
 		<div class="form-group">
 			<label for="FansNum">粉丝数</label>
 			<input class="form-control" type="integer" name="FansNum">
@@ -61,7 +77,7 @@
 			<label for="NonHeadLinePrice">非头条价格</label>
 			<input class="form-control" type="decimal" name="NonHeadLinePrice">
 		</div>
-		<div class="form-group">
+{{-- 		<div class="form-group">
 			<label for="CostEffective">税率</label>
 			<input class="form-control" type="decimal" name="CostEffective">
 		</div>
@@ -72,7 +88,7 @@
 		<div class="form-group">
 			<label for="Credit">信用</label>
 			<input class="form-control" type="integer" name="Credit">
-		</div>
+		</div> --}}
 		<input class="btn btn-primary form-control" type="submit" value="确认添加">		
 	</form>
 	</div>

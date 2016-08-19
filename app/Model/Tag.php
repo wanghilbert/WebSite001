@@ -12,6 +12,8 @@ class Tag extends Model
 	protected $fillable = [
 		'Name'
 	];
+
+    protected $primaryKey = 'TagId';
     //
     public function resources() {
     	return $this->belongsToMany('App\Model\Resource', 'relations', 'TagId', 'ResId')->withTimestamps(); 
