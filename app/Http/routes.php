@@ -70,3 +70,13 @@ Route::get('/test/register',  function () {
 Route::get('/test/create_wechat',  function () {
     return view('res.adminWechatRes');
 });
+Route::get('/test/tableShow',  function () {
+    return view('res.tableShow');
+});
+
+Route::get('/excel', 'ResController@excelInput');
+
+Route::get('/resList', 'ResController@showRes');
+Route::get('/res/{id}/{pageno}', 'ResController@filterByTag');
+Route::get('/res/pagepre', 'ResController@pageprevious');
+Route::get('/res/pagenext', 'ResController@pagenext');

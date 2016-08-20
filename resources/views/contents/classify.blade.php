@@ -31,28 +31,15 @@
 				</tbody>
 			</table>
 		</div>
-		@foreach ($items1 as $name=>$href)
-			<a class="classbutton" role="button" href="{{$href}}">{{$name}}</a>
-		@endforeach
-<!-- 		<a class="classbutton" id="class-1-1" role="button" data-toggle="popover">影视</a>
-		<a class="classbutton" id="class-1-2" role="button" data-toggle="popover">综艺</a>
-		<a class="classbutton" role="button" href="#">时尚</a>
-		<a class="classbutton" role="button" href="#">美妆</a>
-		<a class="classbutton" role="button" href="#">体育</a>
-		<a class="classbutton" role="button" href="#">科技</a>
-		<a class="classbutton" role="button" href="#">汽车</a> -->
 	</div>
-
-	<div class="row" style="margin-top: 20px;">
-		@foreach ($items2 as $name=>$href)
-			<a class="classbutton" role="button" href="{{$href}}">{{$name}}</a>
+		@foreach ($items1 as $item)
+			@if(($item->TagId)%7 == 1)
+				<div class="row" style="margin-top: 20px;">
+			@endif
+			<a class="classbutton" role="button" href="/res/{{$item->TagId}}/1">{{$item->Name}}</a>
+			@if(($item->TagId)%7 == 0)
+				</div>
+			@endif
 		@endforeach
-<!-- 		<a class="classbutton" role="button" href="#">游戏</a>
-		<a class="classbutton" role="button" href="#">美食</a>
-		<a class="classbutton" role="button" href="#">情感</a>
-		<a class="classbutton" role="button" href="#">健康</a>
-		<a class="classbutton" role="button" href="#">旅行</a>
-		<a class="classbutton" role="button" href="#">教育</a>
-		<a class="classbutton" role="button" href="#">文化</a> -->
 	</div>
 </div>

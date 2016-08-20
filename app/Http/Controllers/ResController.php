@@ -11,9 +11,14 @@ use App\Model\Tag as Tag;
 use App\Model\Relation as Relation;
 
 use Excel;
+use DB;
 
 class ResController extends Controller
 {
+
+    protected $pageno = 0;
+    protected $p_resId = 0;
+    protected $maxPage = 0;
 
     public function createIndex()
     {
@@ -107,10 +112,39 @@ class ResController extends Controller
         dd($res);
     }
 
-    public function filterByTag()
+    // public function filterByTag()
+    // {
+    //     $res = Tag::filterByTag(2);
+    //     dd($res);
+    // }
+    public function pagenext()
     {
-        $res = Tag::filterByTag(2);
-        dd($res);
+        $pageno++;
+        return redirect('/res/{id}/{pageno}',['$p_resId','$pageno']);
+    }
+   public function pageprevious()
+    {
+        if ($pageno>0) 
+        {
+         $pageno--;          
+        }
+         return redirect('/res/{id}/{pageno}',['$p_resId','$pageno']);
+    }
+
+    public function filterByTag($id,$pageno)
+    {
+        $p_resId=$id;
+        $tag = Tag::find($id);
+        $res = $tag->resources;
+        //dd($res->count());
+        $numOnePage=10;
+        $resSearchList = $res->forpage($pageno, $numOnePage);;
+        // $maxPage = 
+        //dd($resList);
+        // $resList = $res->simplePaginate($perPage = 5, $columns = ['*'], $pageName = 'page');
+
+        return view('res.searchShow',compact('resSearchList'));
+
     }
     /**
      * Display a listing of the resource.
@@ -198,4 +232,11 @@ class ResController extends Controller
         dd($request->all());
     }
 
+    public function showRes()
+    {
+        //$resList = Resource::where('ResId','<','10')->get();
+        $resList = DB::table('resources')->simplePaginate($perPage = 5, $columns = ['*'], $pageName = 'page');
+        //dd($resList);
+        return view('res.tableShow',compact('resList'));
+    }
 }
