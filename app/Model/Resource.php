@@ -118,10 +118,7 @@ class Resource extends Model
         //       ->get(); 		
 	    }
     }
-
-    public static function filterByTag($tag) {
-
-    }
+    
    //  public function filterByRegion($region) {
    //  	return $this->where('Region', $region)
    //  				->sort('Name')

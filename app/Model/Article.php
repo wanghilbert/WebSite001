@@ -17,7 +17,7 @@ class Article extends Model
 		'ViewsNum',
 		'UpNum'
 	];
-
+    protected $primaryKey = 'ID';
     //
     public function resource() {
     	return $this->belongsTo('App\Model\Resource', 'ResId', 'ResId');

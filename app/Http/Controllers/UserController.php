@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Repositories\UserRepository;
 use App\User;
 use App\Model\News;
+use App\Model\Resource as Resource;
+use Illuminate\Support\Facades\Auth;
 use Crypt;
 
 class UserController extends Controller
@@ -108,6 +110,29 @@ class UserController extends Controller
         $news = $user->news;
         dd($news);
         return view('user.news', ['news' => $news]);
+    }
+
+    public function select(Request $request)
+    {
+        $user = Auth::user();
+        $res  = Resource::find([12, 34]);
+        $option = true;
+        if ($option) {
+            $price = $res->HeadLinePrice;
+        } else
+        {
+            $price = $res->NonHeadLinePrice;
+        }
+        $user->resselections()->attach($res, ['Option' => true, 'Price' => $price]);
+    }
+
+    public function done()
+    {
+        $user = Auth::user();
+        $res = $user->resselections()->get();
+        foreach ($res as $value) {
+            $user->resselections()->detach($value->ResId);
+        }     
     }
 
 }

@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
     public function resselections() {
-        return $this->belongsToMany('App\Model\Resource', 'selections', 'UserId', 'ResId')->withPivot('Option')->withTimestamps();
+        return $this->belongsToMany('App\Model\Resource', 'selections', 'UserId', 'ResId')->withPivot('Option', 'Price')->withTimestamps();
     }
 
     public function rescomments() {

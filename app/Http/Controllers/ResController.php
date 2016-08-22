@@ -15,11 +15,28 @@ use Excel;
 class ResController extends Controller
 {
 
+    protected $excelPath = '';
+
+    /**
+     * Test Function, Delete Later
+     * @return [type] [description]
+     */
     public function createIndex()
     {
+        $tags = Tag::all();
+        $tag = '文案创作';
+        if (Tag::exist($tag)) {
+            dd('OK');
+        }
+        dd($tags);
         return view('res.adminWechatRes');
     }
 
+    /**
+     * Create Resource manually
+     * @param  Request $request [description]
+     * @return redirect to create index
+     */
     public function createRes(Request $request)
     {
         $authByWeChat = false;
@@ -40,10 +57,21 @@ class ResController extends Controller
         return redirect('/res/create');
     }
 
+    /**
+     * Create Tags manually
+     * @param  Request $request [description]
+     * @return 
+     */
     public function createTag(Request $request)
     {
-        $tag = 'Tag02';
-        Tag::create(['Name' => $tag]);
+        $tags = $request->tags;
+        $tagArr = explode("，", $tags);
+
+        foreach ($tagArr as $value) {
+            if (!Tag::exist($value)) {
+                Tag::create(['Name' => $tag]);
+            }
+        }
     }
 
 
@@ -56,10 +84,12 @@ class ResController extends Controller
 
     /**
      * Excel Operation
+     * Set Excel Path
      */
     public function excelInput()
     {
         $path = 'storage/exports/';
+        // $excelname = 'Test.xlsx';
         $items = Excel::load($path.'Test.xlsx', function($reader) {
 
         })->get();
@@ -101,17 +131,64 @@ class ResController extends Controller
     } 
     
     // Test Filter
-    public function filterByFans()
+    /**
+     * Filter Res by Fan
+     * @param $range => "100-200" 
+     * @return [type] [description]
+     */
+    public function filterByFans($range)
     {
-        $res = Resource::filterByFans(2,100);
+        $price = explode("-", $range);
+        if (count($price) == 2) {
+            $low = $price[0];
+            $high = $price[1];
+        } else {
+            $low = $price[0];
+            $high = 0;
+        }
+        
+        $res = Resource::filterByFans($low,$high);
         dd($res);
     }
 
-    public function filterByTag()
+    /**
+     * Filter Res by Tags, Or relations
+     * @param  $tags => id of Tag (1%2%3)
+     * @return [type]       [description]
+     */
+    public function filterByOrTags($tags)
     {
-        $res = Tag::filterByTag(2);
+        $tagArr = explode("%", $tags);        
+        $resId = Relation::whereIn('TagId', $tagArr)->get()->unique('ResId');
+        $resIdArr = null;
+        $count = 0;
+        foreach ($resId as $value) {
+            $resIdArr[$count] = $value->ResId;
+            $count++;
+        }
+        $res = Resource::whereIn('ResId', $resIdArr)->get();
         dd($res);
     }
+
+    /**
+     * Filter Res by Tags, And relation
+     * @param  $tags => id of Tag (1%2%3)
+     * @return [type] [description]
+     */
+    public function filterByAndTags($tags)
+    {
+        $tagArr = explode("%", $tags);
+        $res = null;
+        foreach ($tagArr as $value) {
+            if ($res == null) {
+                $res = Tag::find($value)->resources;
+            } else {
+                $res = $res->intersect(Tag::find($value)->resources);
+            }
+        }
+        dd($res);
+    }
+
     /**
      * Display a listing of the resource.
      *

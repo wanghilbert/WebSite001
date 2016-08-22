@@ -17,56 +17,87 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// Route::get('/home', 'HomeController@index');
 
 
-/**
- * User Management
- */
-// Route::get('/user/userInfo', 'UserController@userInfo');
+// /**
+//  * User Management
+//  */
+// // Route::get('/user/userInfo', 'UserController@userInfo');
 
-Route::get('/user/registerUser', 'UserController@registerUser');
+// Route::post('/user/registerUser', 'UserController@registerUser');
+// Route::get('/user/registerUser', 'UserController@registerUser');
 
-Route::get('/user/show', 'UserController@show');
+// Route::get('/user/show', 'UserController@show');
 
-Route::delete('/user/delete/{user}', 'UserController@delete');
+// Route::delete('/user/delete/{user}', 'UserController@delete');
 
-Route::post('/user/edit/permission/{user}', 'UserController@permission');
+// Route::post('/user/edit/permission/{user}', 'UserController@permission');
 
-Route::post('/user/edit/pwd/{user}', 'UserController@password');
-/**
- * Resource Management
- */
-Route::get('/res/index', 'ResController@index');
+// Route::post('/user/edit/pwd/{user}', 'UserController@password');
+// /**
+//  * Resource Management
+//  */
+// Route::get('/res/index', 'ResController@index');
 
-Route::get('/res/edit', 'ResController@editIndex');
+// Route::get('/res/edit', 'ResController@editIndex');
 
-Route::get('/res/show', 'ResController@show');
+// Route::get('/res/show', 'ResController@show');
 
-Route::post('/res/add', 'ResController@add');
+// Route::post('/res/add', 'ResController@add');
+
+// Route::delete('/res/delete/{res}', 'ResController@delete');
+
+// Route::get('/res/edit/{res}', 'ResController@editPage');
+
+// Route::post('/res/edit/update/{res}', 'ResController@update');
+
+// // Excel Data
+// Route::get('/excel/index', 'ExcelController@index');
+
+// Route::post('/excel/export', 'ExcelController@export');
 
 
+// // Test
+// Route::get('/test', 'ResController@testLogin');
 
-Route::delete('/res/delete/{res}', 'ResController@delete');
+// //yw test
+// Route::get('/yw_test',  function () {
+//     return view('layouts.basicStruct');
+// });
 
-Route::get('/res/edit/{res}', 'ResController@editPage');
+// Route::get('/detailHot',  function () {
+//     return view('detailHot');
+// });
 
-Route::post('/res/edit/update/{res}', 'ResController@update');
+// Route::get('/news/create', function() {
+// 	return view('news.create');
+// });
 
-// Excel Data
-Route::get('/excel/index', 'ExcelController@index');
+/////////////////////////////
+Route::get('/index', 'HomeController@index');
 
-Route::post('/excel/export', 'ExcelController@export');
+// Route::post('/user/registerUser', 'UserController@registerUser');
+// Route::get('/register', 'UserController@registerIndex');
 
-Route::get('/index', 'ResController@test');
+Route::post('/news/create', 'NewsController@createNews');
+Route::get('/news/create', 'NewsController@createIndex');
+Route::get('/news/index/{id}', 'NewsController@index');
 
-// Test
-Route::get('/test', 'ResController@testLogin');
+Route::get('/res/create', 'ResController@createIndex');
+Route::post('/res/create', 'ResController@createRes');
 
-//yw test
-Route::get('/test/register',  function () {
-    return view('user.register');
-});
-Route::get('/test/create_wechat',  function () {
-    return view('res.adminWechatRes');
-});
+Route::get('/tag', 'ResController@createTag');
+Route::get('/bind', 'ResController@bind');
+
+// Excel Operation Test;
+Route::get('/excel', 'ResController@excelInput');
+
+Route::get('/filterByFan', 'ResController@filterByFans');
+// Route::get('/filterByTag', 'ResController@filterByTag');
+
+
+Route::get('/select', 'UserController@select'); // Select Res by User
+Route::get('/done', 'UserController@done'); // Delete Selection
+
+Route::get('/filterByTags', 'ResController@filterByTags');

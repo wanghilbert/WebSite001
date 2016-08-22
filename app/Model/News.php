@@ -18,6 +18,8 @@ class News extends Model
     	'Pic',
     	'Content'
     ];
+
+    protected $primaryKey = 'NewsId';
     //
     public function user() {
     	return $this->belongsTo('App\User', 'UserId', 'id');

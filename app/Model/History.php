@@ -12,6 +12,8 @@ class History extends Model
 		'UpNum', 
 		'Date'
 	];
+
+    protected $primaryKey = 'HisId';
     // Relationship with Resources
     public function resource() {
     	return $this->belongsTo('App\Model\Resource', 'ResId', 'ResId');

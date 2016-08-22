@@ -24,4 +24,15 @@ class Tag extends Model
     	$tag = self::find($id);
     	return $tag->resources()->get();
     }
+
+    public static function exist($name)
+    {
+        $count = self::where('Name', '=', $name)->count();
+        if($count > 0)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
