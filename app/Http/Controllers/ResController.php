@@ -14,7 +14,6 @@ use Excel;
 
 class ResController extends Controller
 {
-
     protected $excelPath = '';
 
     /**
@@ -274,5 +273,4 @@ class ResController extends Controller
     {
         dd($request->all());
     }
-
 }
