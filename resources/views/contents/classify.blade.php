@@ -1,10 +1,51 @@
+<script type="text/javascript">
+$(function() {
+	$('moreTagRow').hide();
+  	$("#moreButton").click(function(){
+  	 	alert('!!show!!');
+ 	 	$("#moreTagRow").show();
+  	});
+
+            $("#class-1-1").popover({
+                html: true,
+                trigger: 'hover',
+                placement: 'auto bottom',
+                delay: {
+                    show: 0,
+                    hide: 1500
+                },
+                title: function() {
+                    return $("#popover-title").html();
+                },
+                content: function() {
+                    return $("#popover-content").html();
+                }
+            });
+            $("#class-1-2").popover({
+                html: true,
+                trigger: 'hover',
+                placement: 'auto bottom',
+                delay: {
+                    show: 0,
+                    hide: 1500
+                },
+                title: function() {
+                    return $("#popover-title").html();
+                },
+                content: function() {
+                    return $("#popover-content").html();
+                }
+            });
+}
+</script>
+
 <div class="clearfix">
-	<div class="pull-left" style="margin-top:15px;margin-bottom: 15px;margin-left: 10px;font-size: small;">
-		按分类浏览
+	<div class="pull-left" style="margin-top:25px;margin-bottom: 15px;margin-left: 10px;font-size: 16px;">
+		标签：
 	</div>
 </div>
 <div class="row">
-	<div class="row" style="margin-top: 20px;">
+	<div class="row" >
 		<div id="popover-title" class="hide">
 			<label>加入我的列表 </label>
 			<input type="checkbox">
@@ -32,14 +73,23 @@
 			</table>
 		</div>
 	</div>
-		@foreach ($items1 as $item)
-			@if(($item->TagId)%7 == 1)
-				<div class="row" style="margin-top: 20px;">
-			@endif
-			<a class="classbutton" role="button" href="/res/{{$item->TagId}}/1">{{$item->Name}}</a>
-			@if(($item->TagId)%7 == 0)
-				</div>
-			@endif
-		@endforeach
+	<div class="row" style="margin-left:50px;">
+		<div class="row" style="margin-top: 5px;">
+			@for($i=1;$i<=7;$i++)
+			<div class="classbutton" role="button" href="#">互联网</div>
+			@endfor
+		</div>
+		<div class="row" style="margin-top: 5px;">
+			@for($i=1;$i<=6;$i++)
+			<div class="classbutton" role="button" href="#">互联网</div>
+			@endfor
+			<input class="classbutton" type="button" id="moreButton" value="更多分类">
+		</div>
+		<div class="row" id="moreTagRow" style="margin-top: 5px;">
+			@for($i=1;$i<=7;$i++)
+			<div class="classbutton" role="button" href="#">互联网</div>
+			@endfor
+		</div>
 	</div>
 </div>
+

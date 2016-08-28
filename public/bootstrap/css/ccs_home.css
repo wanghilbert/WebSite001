@@ -1,29 +1,5 @@
 
-.classbutton
-{
-	color: #555;
-	border-color: #555;
-	border-style:solid;
-	border-width:2px;  
-	
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	
-	padding-top: 5px;
-	padding-left: 25px;
-	padding-right: 25px;
-	padding-bottom: 5px; 
-		
-}
-.classbutton:hover,
-.classbutton:focus
-{
-	color: #FFB647;
-	border-color:#FFB647;
-	text-decoration: none;
-}
+
 .usercol03{
 	padding: 5px 5px 5px 5px;
 }

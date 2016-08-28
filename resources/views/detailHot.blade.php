@@ -1,8 +1,12 @@
 @extends('layouts.basicStruct')
 
+@section('head')
+<title>详情</title>
+@endsection
+
 @section('section')
 	@include('contents.search')
-	@include('contents.banner')
+
 
 			<br />
 			<div class="wray" id="main-text">
@@ -14,7 +18,7 @@
                                 <div class="xq_topleft">
                                     <div class="xq_top clearFix">
                                         <div class="xq_img fl">
-                                            <img src="img/image-3.png" />
+                                            <img src="/bootstrap/img/image-3.png" />
                                         </div>
                                         <div class="xq_top_right fl">
                                             <h3 title="独立鱼电影">独立鱼电影</h3>
@@ -77,7 +81,7 @@
                         		</div>
                         		<div>
                             		<div class="sm fl">为保证您的订单能够顺利执行，请与客服预约档期无误后确认预约</div>
-                            		<a target="_blank" href="#"><img src="img\image-6.png" alt="点击这里给我发消息" title="点击这里给我发消息" border="0"></a>
+                            		<a target="_blank" href="#"><img src="/bootstrap/img\image-6.png" alt="点击这里给我发消息" title="点击这里给我发消息" border="0"></a>
                         		</div>
                         		<br />
                         		<div class="info_button clearFix">
@@ -91,5 +95,20 @@
 			</div>
 			<!--end of <div class="row" id="main-text"> -->
 			<br /><br /><br /><br /><br />				
+<script type="text/javascript">
+    function changePrice(price, i) {
+        $('.news_position').removeClass('list_active');
+        $('.news_position_' + i).addClass('list_active');
+        $('#price').text(price + '元');
+    }
+    function selectThis(){
+        alert("预约！")
+    };
+    function addCart(){
+        alert("购买！")
+    };
+
+
+</script>
 
 @endsection

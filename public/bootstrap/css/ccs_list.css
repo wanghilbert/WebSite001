@@ -52,6 +52,7 @@ A:active {
 .filter_list {
 	MARGIN-BOTTOM: 5px
 }
+
 .filter_list LI.more {
 	POSITION: absolute; LINE-HEIGHT: 23px; HEIGHT: 23px; TOP: 0px; RIGHT: -50px
 }
@@ -75,14 +76,14 @@ A:active {
 	COLOR: #fff
 }
 .filter_select {
-	POSITION: relative; WIDTH: 545px
+	POSITION: relative; WIDTH: 800px
 }
 .filter_select UL {
-	WIDTH: 700px
+	WIDTH: 800px
 }
 
 .filter_1 li {
-	PADDING-BOTTOM: 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; MARGIN-BOTTOM: 5px; FLOAT: left; OVERFLOW: hidden; MARGIN-RIGHT: 10px; PADDING-TOP: 0px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; MARGIN-BOTTOM: 5px; FLOAT: left; OVERFLOW: scroll; MARGIN-RIGHT: 10px; PADDING-TOP: 0px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px
 }
 .filter_1 li:hover {
 	BACKGROUND: #ff6602
@@ -92,13 +93,9 @@ A:active {
 }
 
 
-
-
 .limit_height {
 	HEIGHT: 28px; OVERFLOW: hidden
 }
-
-
 
 .bg_orange {
 	BACKGROUND: #ff6602
@@ -106,4 +103,11 @@ A:active {
 
 .filter_select .hot {
 	color: #FF0000; FONT-WEIGHT: bold
+}
+
+.showTable thead {
+	height: 40px;
+	line-height: 40px
+	font-size:14px;
+	text-align: center;
 }

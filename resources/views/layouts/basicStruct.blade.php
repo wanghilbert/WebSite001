@@ -4,9 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="/bootstrap/css/common.css" rel="stylesheet">
     <link href="/bootstrap/css/ccs_home.css" rel="stylesheet">
@@ -14,6 +12,7 @@
     <script src="/bootstrap/js/bootstrap.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @yield('head')
 
     <script type="text/javascript">
         $(function() {
@@ -86,7 +85,7 @@
     </script>   
 </head>
 <body>
-    <div class="container" style="width: 800px;margin:0 auto;">
+    <div class="container" style="">
         <div class="row" id="menu-bar">
             <nav class="navbar navbar-default" role="navigation">
                 <div>
@@ -95,7 +94,7 @@
                         <li><a href="#">|</a></li>
                         <li><a href="#"><span class="userlink">资讯</span></a></li>
                         <li><a href="#"><span class="userlink">娱乐资源</span></a></li>
-                        <li><a href="#"><span class="userlink">智能选择</span></a></li>
+                        <li><a href="#"><span class="userlink">资源选择</span></a></li>
                         <li><a href="#"><span class="userlink">关于我们</span></a></li>
                     </ul>
                 </div>
@@ -111,8 +110,7 @@
                                 <a href="{{ url('/login') }}"><span class="userlink">{{ Auth::user()->name }}</span></a>
                             </li>
                             <li><a href="{{ url('/logout') }}"><span class="userlink">注销</span></a></li>
-                        @endif  
-                        <li><a href="#"><span class="userlink">联系客服</span></a></li>
+                        @endif                          
                     </ul>
                 </div>
             </nav>

@@ -14,7 +14,7 @@ a:focus { text-decoration: none; }
 }
 .userlinkfoot
 {
-	color: white;
+	color: #ffffff;
 }
 .userlinkfoot:hover,
 .userlinkfoot:focus
@@ -116,3 +116,31 @@ li.list_active { border: 1px solid #ff6602; background: url(../images/ico_gw.png
 /*542*/
 
 .sanjiaoxing { height: 0; width: 0; border: 25px solid #FFFFFF; border-color: transparent transparent transparent #FFFFFF; position: absolute; left: 0; top: 0 }
+
+.classbutton
+{
+	width: 12%;
+	height: 30px;
+	float: left;
+
+	color: #555;
+	background-color: white;
+	border-color: #555;
+	border-style:solid;
+	border-width:2px;  
+	
+	margin-left: 10px;
+	margin-right:10px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	
+	line-height:30px;font-size: 14px; font-weight: 400;
+	text-align: center;		
+}
+.classbutton:hover,
+.classbutton:focus
+{
+	color: #FFB647;
+	border-color:#FFB647;
+	text-decoration: none;
+}

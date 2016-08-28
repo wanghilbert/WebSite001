@@ -1,4 +1,4 @@
-@extends('layouts.website')
+@extends('layouts.basicStruct')
 
 @section('section')
 	
