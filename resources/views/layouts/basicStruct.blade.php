@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="/bootstrap/css/common.css" rel="stylesheet">
-    <link href="/bootstrap/css/ccs_home.css" rel="stylesheet">
      <script src="/bootstrap/js/jquery-2.1.1.min.js"></script>
     <script src="/bootstrap/js/bootstrap.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,36 +15,6 @@
 
     <script type="text/javascript">
         $(function() {
-            $("#class-1-1").popover({
-                html: true,
-                trigger: 'hover',
-                placement: 'auto bottom',
-                delay: {
-                    show: 0,
-                    hide: 1500
-                },
-                title: function() {
-                    return $("#popover-title").html();
-                },
-                content: function() {
-                    return $("#popover-content").html();
-                }
-            })
-            $("#class-1-2").popover({
-                html: true,
-                trigger: 'hover',
-                placement: 'auto bottom',
-                delay: {
-                    show: 0,
-                    hide: 1500
-                },
-                title: function() {
-                    return $("#popover-title").html();
-                },
-                content: function() {
-                    return $("#popover-content").html();
-                }
-            })
             $("#username").keydown(function(event){
                 if(event.which=="13") //回车键
                 {
@@ -85,14 +54,13 @@
     </script>   
 </head>
 <body>
-    <div class="container" style="">
+    <div class="container" style="width:1000px">
         <div class="row" id="menu-bar">
             <nav class="navbar navbar-default" role="navigation">
                 <div>
                     <ul class="nav navbar-nav">
                         <li><a href="#"><span class="userlink">首页</span></a></li>
                         <li><a href="#">|</a></li>
-                        <li><a href="#"><span class="userlink">资讯</span></a></li>
                         <li><a href="#"><span class="userlink">娱乐资源</span></a></li>
                         <li><a href="#"><span class="userlink">资源选择</span></a></li>
                         <li><a href="#"><span class="userlink">关于我们</span></a></li>
@@ -101,7 +69,6 @@
                 <div>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="userlink">我的订单</span></a></li>
-
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}"><span class="userlink">登录</span></a></li>
                             <li><a href="#"><span class="userlink">注册</span></a></li>
@@ -117,7 +84,7 @@
         </div>
         <!--end of <div class="row" id="menu-bar"> -->
         @yield('section')
-
+        <br /><br /><br /><br /><br />              
         <div class="row" id="footbar" style="background: #555555; color:#FFFFFF;">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: left;padding: 50px 50px 50px 50px;">
                 <table>

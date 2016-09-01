@@ -1,0 +1,99 @@
+.userPanel{
+	width: 220px;
+	height: 380px;
+	margin-left: 20px;margin-top: 20px;
+	background: #fff; 
+	border: 1px solid #e5e5e5;
+	float: left;
+	overflow:hidden;
+}
+.userPic{
+	width: 150px;
+	height: 150px;
+	margin-left: 35px;
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+.userInfoText{
+	width: 200px;
+	height: 30px;
+	margin-left: 20px;
+	line-height: 30px;
+	font-size:16px;
+}
+.bottomCol{
+	width: 150px;
+	height: 300px;
+	margin-left:20px;margin-top:20px;
+}
+.whiteGreyBottom{
+	background:  #ffffff;
+	width: 150px;
+	height: 40px;
+	font-size: 16px;
+	text-align: center;
+
+}
+.whiteGreyBottom:hover,focus{
+	background:#c3c3c3;;
+}
+.cartPanel{
+	width: 700px;
+	height: 800px;
+	margin-left: 20px;margin-top: 20px;
+	background: #fff; 
+	border: 1px solid #e5e5e5;
+	float: left;
+	overflow:hidden;
+
+}
+.cartTable{
+ margin-left: 10px;
+ margin-right: 10px;
+
+}
+.cartTable th{
+	height: 40px;
+	text-align: center;
+}
+.cartTable td{
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px dotted #e5e5e5;
+}
+.headSelect{
+	width: 60px;
+	height:35px; 
+	margin-right: 10px;
+	border:2px solid #ff6602;
+	color: #ff6602;
+	float: left;
+	text-align: center;
+	line-height: 35px;
+	font-size: 14px;
+}
+
+.nonHeadSelect{
+	width: 60px;
+	height:35px; 
+	border:2px solid #000;
+	color: #000;
+	float: left;
+	text-align: center;
+	line-height: 35px;
+	font-size: 14px;
+
+}
+.priceValue{
+	height: 40px;
+	line-height: 40px;
+	color: #ff6602;
+	font-size: 16px;
+}
+.tableFoot{
+	background-color: #f9f9f9;
+	height: 40px;
+	line-height: 40px;
+	padding-right: 10px;
+}

@@ -18,7 +18,7 @@
                                 <div class="xq_topleft">
                                     <div class="xq_top clearFix">
                                         <div class="xq_img fl">
-                                            <img src="/bootstrap/img/image-3.png" />
+                                            <img src="/bootstrap/img/image7.png" />
                                         </div>
                                         <div class="xq_top_right fl">
                                             <h3 title="独立鱼电影">独立鱼电影</h3>
