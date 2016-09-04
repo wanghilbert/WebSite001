@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Model\Tag as Tag;
 use Illuminate\Support\Facades\Auth;
 
+use App\Model\Resource as Resource;
+
 class HomeController extends Controller
 {
     /**
@@ -41,6 +43,19 @@ class HomeController extends Controller
 
     }
 
+    public function detailHot()
+    {
+        $res = Resource::find(2);
+        $tags = $res->tags()->get();
+
+        return view('detailHot', ['res' => $res, 'tags' => $tags]);
+    }
+
+/*    public function classify()
+    {
+        return view('contents.classify');
+    }
+*/
     public function testLogin(Request $request)
     {
         return view('auth.login');

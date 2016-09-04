@@ -14,15 +14,19 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('ResId');
-            $table->boolean('AuthByWeChat');
-            $table->string('Name')->unique();
-            $table->string('Link')->nullable();
+            $table->string('Name')->nullable();
+            $table->string('WeChat')->unique();
             $table->integer('FansNum')->unsigned();
-            $table->text('Desp')->nullable();
             $table->string('Tags')->nullable();
+            $table->string('Region')->nullable();
             $table->decimal('HeadLinePrice', 10, 2)->nullable();
             $table->decimal('NonHeadLinePrice', 10, 2)->nullable();
-            $table->text('Addition')->nullable();
+            $table->integer('AvgViews')->nullable();
+            $table->decimal('CostEffective', 10, 2)->default(8.22);
+            $table->integer('Collects')->default(0);
+            $table->integer('Purchases')->default(0);
+            $table->integer('Comments')->default(0);
+            $table->string('Intro')->nullable();
 
             $table->timestamps();
         });

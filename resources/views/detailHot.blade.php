@@ -34,36 +34,38 @@
                                             <div class="xq_ul_xian"></div>
                                         </li>
                                         <li>
-                                            <span class="xq_ul_sd">97086</span>
+                                            <span class="xq_ul_sd">{{ $res->AvgViews }}</span>
                                             <span class="xq_ul_sx">头条平均阅读数</span>
                                         </li>
                                         <li>
-                                            <span class="xq_ul_sd">8.22</span><span class="xq_ul_sx">阅读性价比</span>
+                                            <span class="xq_ul_sd">{{ $res->CostEffective }}</span><span class="xq_ul_sx">阅读性价比</span>
                                             <div class="xq_ul_xian"></div>
                                         </li>
-                                        <li><span class="xq_ul_sd">0</span><span class="xq_ul_sx">收藏数</span></li>
+                                        <li><span class="xq_ul_sd">{{ $res->Collects }}</span><span class="xq_ul_sx">收藏数</span></li>
                                     </ul>
                                 </div>
 							</div>
 							<div class="goods_box2">
                                 <div class="info">
                                     <div class="info_3">
-                                        <a href="#"><span class="label label-warning" style="font-size:larger;">电影频道</span></a>
-                                        <a href="#"><span class="label label-warning pull-right" style="font-size:larger;">收藏</span></a>
+                                        @foreach($tags as $tag)
+                                           <a href="#"><span class="label label-warning" style="font-size:larger;">{{ $tag->Name }}</span></a> 
+                                        @endforeach
+                                        <a href="/res/collect-{{ $res->ResId }}"><span class="label label-warning pull-right" style="font-size:larger;">收藏</span></a>
                                     </div>
                                     <div class="info_1" title="">
-                                    独立鱼(duliyu.com)专注电影领域，是目前最大的电影知识平台。
+                                    {{ $res->Intro }}
                                     </div>
                                 </div>
                                 <div class="clearFix info_2 ">
                             		<h3 class="fl">现价&nbsp;<span id="price" class="f_orange f_30">{{ $res->HeadLinePrice }}元</span></h3>
                             		<div class="fr tongji">
                                 		<div class="fr tongji_1">
-                                    		<h4>0</h4>
+                                    		<h4>{{ $res->Comments }}</h4>
                                     		<p>评价</p>
                                 		</div>
                                 		<div class="fr tongji_2">
-                                    		<h4>0</h4>
+                                    		<h4>{{ $res->Purchases }}</h4>
                                     		<p>购买</p>
                                 		</div>
                             		</div>

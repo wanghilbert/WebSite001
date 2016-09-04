@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Model\Resource as Resource;
 use App\Model\Tag as Tag;
 use App\Model\Relation as Relation;
+use App\Model\Region as Region;
 
 use Excel;
 
@@ -87,13 +88,157 @@ class ResController extends Controller
      */
     public function excelInput()
     {
+        ini_set('max_execution_time', 300);
         $path = 'storage/exports/';
         // $excelname = 'Test.xlsx';
-        $items = Excel::load($path.'Test.xlsx', function($reader) {
+        $items = Excel::load($path.'Test.xls', function($reader) {
 
         })->get();
 
         foreach ($items as $value) {
+            $title = $value->getTitle(); // Tag
+
+            $tagItem = Tag::where('Name', '=', $title)->first();
+            if ($tagItem == NULL) {
+                $tagItem = Tag::create([
+                    'Name' => $title
+                    ]);
+            }
+
+            foreach ($value as $row) {
+                if ($row->wechat == NULL) {
+                    continue;
+                }
+
+                if ($title == '地域') {
+                    $region = Region::where('Region', '=', $row->region)->first();
+                    if ($region == NULL) {
+                        $region = Region::create([
+                                'Region'    =>  $row->region
+                            ]);
+                    }
+
+                    $res = Resource::where('WeChat', '=', $row->wechat)->first();
+                    if ($res == NULL) {
+                        $costeffective = 8.22;
+                        $collects = 0;
+                        $purchases = 0;
+                        $comments = 0;
+                        $intro = NULL;
+                        if ($row->costeffective != NULL) {
+                            $costeffective = $row->costeffective;
+                        }
+
+                        if ($row->collects != NULL) {
+                            $collects = $row->collects;
+                        }
+
+                        if ($row->purchases != NULL) {
+                            $purchases = $row->purchases;
+                        }
+
+                        if ($row->comments != NULL) {
+                            $comments = $row->comments;
+                        }
+
+                        if ($row->intro != NULL) {
+                            $intro = $row->$intro;
+                        }
+
+                        $res = new Resource([
+                            'Name'          => $row->name,
+                            'WeChat'        => $row->wechat,
+                            'FansNum'       => $row->fans,
+                            'Tags'          => $title,
+                            'HeadLinePrice' => $row->headline,
+                            'NonHeadLinePrice'  => $row->nonheadline,
+                            'AvgViews'      => $row->avgviews,
+                            'CostEffective' => $costeffective,
+                            'Collects'      => $collects,
+                            'Purchases'     => $purchases,
+                            'Comments'      => $comments,
+                            'Intro'         => $intro
+                        ]);
+                        $region->resources()->save($res);
+                        $res->tags()->attach($tagItem);
+                    } else {
+                        $tags = $res->tags()->get();
+                        $flag = false;
+                        foreach ($tags as $value) {
+                            if ($value->Name == $title) {
+                                $flag = true;
+                                break;
+                            }
+                        }
+
+                        if ($flag == false) {
+                            $res->tags()->attach($tagItem);
+                        }
+                    }
+                } else {
+                    $res = Resource::where('WeChat', '=', $row->wechat)->first();
+                    if ($res == NULL) {
+                        $costeffective = 8.22;
+                        $collects = 0;
+                        $purchases = 0;
+                        $comments = 0;
+                        $intro = NULL;
+                        if ($row->costeffective != NULL) {
+                            $costeffective = $row->costeffective;
+                        }
+
+                        if ($row->collects != NULL) {
+                            $collects = $row->collects;
+                        }
+
+                        if ($row->purchases != NULL) {
+                            $purchases = $row->purchases;
+                        }
+
+                        if ($row->comments != NULL) {
+                            $comments = $row->comments;
+                        }
+
+                        if ($row->intro != NULL) {
+                            $intro = $row->$intro;
+                        }
+
+                        $res = Resource::create([
+                            'Name'          => $row->name,
+                            'WeChat'        => $row->wechat,
+                            'FansNum'       => $row->fans,
+                            'Tags'          => $title,
+                            'HeadLinePrice' => $row->headline,
+                            'NonHeadLinePrice'  => $row->nonheadline,
+                            'AvgViews'      => $row->avgviews,
+                            'CostEffective' => $costeffective,
+                            'Collects'      => $collects,
+                            'Purchases'     => $purchases,
+                            'Comments'      => $comments,
+                            'Intro'         => $intro
+                        ]);
+                        $res->tags()->attach($tagItem);
+                    } else {
+                        $tags = $res->tags()->get();
+                        $flag = false;
+                        foreach ($tags as $value) {
+                            if ($value->Name == $title) {
+                                $flag = true;
+                                break;
+                            }
+                        }
+
+                        if ($flag == false) {
+                            $res->tags()->attach($tagItem);
+                        }
+                    }
+                }
+            }
+        }
+
+        ini_set('max_execution_time', 30);
+
+/*        foreach ($items as $value) {
             $authByWeChat = false;
             if ($value->v) {
                 $authByWeChat = true;
@@ -126,9 +271,22 @@ class ResController extends Controller
                 }
                 $res->tags()->attach($tagItem);
             }
-        }
+        }*/
     } 
     
+    /**
+     * [collect description]
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function collect($id)
+    {
+        $res = Resource::find($id);
+        $res->Collects += 1;
+        $res->save();
+        return redirect('/detailHot');
+    }
+
     // Test Filter
     /**
      * Filter Res by Fan

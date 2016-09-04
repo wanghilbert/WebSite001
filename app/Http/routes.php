@@ -74,11 +74,22 @@ Route::auth();
 // 	return view('news.create');
 // });
 
+/*
+1. Excel Operation
+	1.1 Import resources from excel
+	1.2 Export selections to excel
+2. User Manage
+	2.1 User Register
+	2.2 User Login
+	2.3 Password Reset
+
+ */
 /////////////////////////////
 Route::get('/index', 'HomeController@index');
-
-// Route::post('/user/registerUser', 'UserController@registerUser');
-// Route::get('/register', 'UserController@registerIndex');
+// Test the data channel to detailhot page.
+Route::get('/detailHot', 'HomeController@detailHot');
+// Route::get('/classify', 'HomeController@classify');
+Route::get('/res/collect-{ResId}', 'ResController@collect');
 
 Route::post('/news/create', 'NewsController@createNews');
 Route::get('/news/create', 'NewsController@createIndex');
@@ -91,7 +102,7 @@ Route::get('/tag', 'ResController@createTag');
 Route::get('/bind', 'ResController@bind');
 
 // Excel Operation Test;
-Route::get('/excel', 'ResController@excelInput');
+Route::get('/excel1', 'ResController@excelInput');
 
 Route::get('/filterByFan', 'ResController@filterByFans');
 // Route::get('/filterByTag', 'ResController@filterByTag');
