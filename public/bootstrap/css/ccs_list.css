@@ -76,14 +76,14 @@ A:active {
 	COLOR: #fff
 }
 .filter_select {
-	POSITION: relative; WIDTH: 800px
+	POSITION: relative; WIDTH: 545px
 }
 .filter_select UL {
-	WIDTH: 800px
+	WIDTH: 700px
 }
 
 .filter_1 li {
-	PADDING-BOTTOM: 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; MARGIN-BOTTOM: 5px; FLOAT: left; OVERFLOW: scroll; MARGIN-RIGHT: 10px; PADDING-TOP: 0px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; MARGIN-BOTTOM: 5px; FLOAT: left; OVERFLOW: hidden; MARGIN-RIGHT: 10px; PADDING-TOP: 0px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px
 }
 .filter_1 li:hover {
 	BACKGROUND: #ff6602
