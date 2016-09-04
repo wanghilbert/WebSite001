@@ -21,16 +21,16 @@
                                             <img src="/bootstrap/img/image-3.png" />
                                         </div>
                                         <div class="xq_top_right fl">
-                                            <h3 title="独立鱼电影">独立鱼电影</h3>
+                                            <h3 title={{ $res->Name }}>{{ $res->Name }}</h3>
                                             <div class="clearFix">                                                  
                                             <div class="wxh_wary" title="yifengzhiyin">微信号:
-                                                <span class="f_orange">duliyumovie</span>
+                                                <span class="f_orange">{{ $res->WeChat }}</span>
                                             </div>
                                         </div>                                      
                                     </div>
                                     <ul class="xq_ul clearFix">
                                         <li>
-                                            <span class="f_orange xq_ul_sd">50万</span><span class="f_orange xq_ul_sx">粉丝数</span>
+                                            <span class="f_orange xq_ul_sd">{{ $res->FansNum }}万</span><span class="f_orange xq_ul_sx">粉丝数</span>
                                             <div class="xq_ul_xian"></div>
                                         </li>
                                         <li>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="clearFix info_2 ">
-                            		<h3 class="fl">现价&nbsp;<span id="price" class="f_orange f_30">13000元</span></h3>
+                            		<h3 class="fl">现价&nbsp;<span id="price" class="f_orange f_30">{{ $res->HeadLinePrice }}元</span></h3>
                             		<div class="fr tongji">
                                 		<div class="fr tongji_1">
                                     		<h4>0</h4>
@@ -72,10 +72,10 @@
                         		<div class="clearFix info_1"> <span class="fl f_name">发布位置&nbsp;</span>
                             		<ul class="fl clearFix f_list">
                                     	<li class="news_position news_position_1 list_active" style="display: block;">
-                                    		<a href="javascript:changePrice('13000','1');">头条</a>
+                                    		<a href="javascript:changePrice({{ $res->HeadLinePrice }},'1');">头条</a>
                                    		</li>
                                     	<li class="news_position news_position_2" style="display: block;">
-                                        	<a href="javascript:changePrice('5500','2');">非头条</a>
+                                        	<a href="javascript:changePrice({{ $res->NonHeadLinePrice }},'2');">非头条</a>
                                    		</li>
                                 	</ul>
                         		</div>
