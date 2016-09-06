@@ -16,15 +16,19 @@ class Resource extends Model
 {
 	private $dst = 'head'; 
 	protected $fillable = [
-		'AuthByWeChat',
 		'Name',
-		'Link',
+    'WeChat',
 		'FansNum',
-		'Desp',
-		'Tags',
-		'HeadLinePrice',
-		'NonHeadLinePrice',
-		'Addition'
+    'Tags', 
+    'Region',
+    'HeadLinePrice',
+    'NonHeadLinePrice',
+    'AvgViews',
+    'CostEffective',
+    'Collects',
+    'Purchases',
+    'Comments',
+    'Intro'
 	];
 
     protected $primaryKey = 'ResId';
@@ -62,6 +66,9 @@ class Resource extends Model
         return $this->belongsToMany('App\User', 'comments', 'ResId', 'UserId')->withPivot('Comment')->withTimestamps();
     }
 
+    public function region() {
+        return $this->belongsTo('App\Model\Region', 'Region', 'RegionId');
+    }
     // File Upload
     // Return fileName
     public static function uploadImg($request, $field) {

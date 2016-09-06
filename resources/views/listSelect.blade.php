@@ -299,24 +299,26 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>
-								<input type="checkbox" name="selectThis">
-							</td>
-							<td>
-								<h6>戏说娱乐圈</h6>
-								<h6>xishuoyule</h6>
-							</td>
-							<td>23638</td>
-							<td>15万</td>
-							<td>3500元</td>
-							<td>2500元</td>
-							<td>女性</td>
-							<td>100%</td>
-							<td>100</td>
-							<td>6.92</td>
-							<td><a href="#" style="color:#ff6602">收藏</a></td>						
-						</tr>
+						@foreach($items as $item)
+							<tr>
+								<td>
+									<input type="checkbox" name="selectThis">
+								</td>
+								<td>
+									<h6>{{ $item->Name }}</h6>
+									<h6>{{ $item->WeChat }}</h6>
+								</td>
+								<td>{{ $item->AvgViews }}</td>
+								<td>{{ $item->FansNum }}万</td>
+								<td>{{ $item->HeadLinePrice }}元</td>
+								<td>{{ $item->NonHeadLinePrice }}元</td>
+								<td>{{ $item->Tags }}</td>
+								<td>100%</td>
+								<td>100</td>
+								<td>{{ $item->CostEffective }}</td>
+								<td><a href="#" style="color:#ff6602">收藏</a></td>						
+							</tr>						
+						@endforeach
 					</tbody>
 				</table>
 				<div>

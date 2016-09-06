@@ -44,30 +44,32 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>
-										<input type="checkbox" name="selectone">
-									</td>
-									<td>
-										<div>戏说娱乐圈</div>
-										<div>xishuoyule</div>
-									</td>
-									<td>
-										<div class="headSelect">头条</div>
-										<div class="nonHeadSelect">非头条</div>
-									</td>
-									<td>
-										<div class="priceValue">130000</div>
-									</td>
-									<td>
-										<div class="priceValue">130000</div>
-									</td>
-									<td>
-										<div class="priceValue">
-										<span class="glyphicon glyphicon-trash"></span>
-										</div>
-									</td>
-								</tr>
+								@foreach($items as $item)
+									<tr>
+										<td>
+											<input type="checkbox" name="selectone">
+										</td>
+										<td>
+											<div>{{ $item->Name }}</div>
+											<div>{{ $item->WeChat }}</div>
+										</td>
+										<td>
+											<div class="headSelect">头条</div>
+											<div class="nonHeadSelect">非头条</div>
+										</td>
+										<td>
+											<div class="priceValue">{{ $item->HeadLinePrice }}</div>
+										</td>
+										<td>
+											<div class="priceValue">{{ $item->NonHeadLinePrice }}</div>
+										</td>
+										<td>
+											<div class="priceValue">
+											<span class="glyphicon glyphicon-trash"></span>
+											</div>
+										</td>
+									</tr>		
+								@endforeach
 							</tbody>
 						</table>
 					</div>

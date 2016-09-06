@@ -91,6 +91,15 @@ Route::get('/detailHot', 'HomeController@detailHot');
 // Route::get('/classify', 'HomeController@classify');
 Route::get('/res/collect-{ResId}', 'ResController@collect');
 
+Route::get('/shop/select-{ResId}', 'ResController@putInCart');
+
+Route::get('/shop/list', 'ResController@listItemInCart');
+Route::get('/shop/list/delete-{ResId}', 'ResController@deleteItemFromCart');
+
+Route::get('/appointment/select-{id}', 'ResController@appoint');
+
+Route::get('/list', 'ResController@listIndex');
+
 Route::post('/news/create', 'NewsController@createNews');
 Route::get('/news/create', 'NewsController@createIndex');
 Route::get('/news/index/{id}', 'NewsController@index');

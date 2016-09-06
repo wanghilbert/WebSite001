@@ -10,6 +10,7 @@ use App\Model\Resource as Resource;
 use App\Model\Tag as Tag;
 use App\Model\Relation as Relation;
 use App\Model\Region as Region;
+use App\User as User;
 
 use Excel;
 
@@ -162,6 +163,7 @@ class ResController extends Controller
                         $region->resources()->save($res);
                         $res->tags()->attach($tagItem);
                     } else {
+                        dd($res);
                         $tags = $res->tags()->get();
                         $flag = false;
                         foreach ($tags as $value) {
@@ -173,6 +175,8 @@ class ResController extends Controller
 
                         if ($flag == false) {
                             $res->tags()->attach($tagItem);
+                            $res->Tags = $res->Tags . ',' . $tagItem->Name;
+                            $res->save();
                         }
                     }
                 } else {
@@ -227,9 +231,10 @@ class ResController extends Controller
                                 break;
                             }
                         }
-
                         if ($flag == false) {
                             $res->tags()->attach($tagItem);
+                            $res->Tags = $res->Tags . ',' . $tagItem->Name;
+                            $res->save();
                         }
                     }
                 }
@@ -237,41 +242,6 @@ class ResController extends Controller
         }
 
         ini_set('max_execution_time', 30);
-
-/*        foreach ($items as $value) {
-            $authByWeChat = false;
-            if ($value->v) {
-                $authByWeChat = true;
-            }
-
-            $res = Resource::where('Name', '=', $value->name)->first();
-            if ($res == NULL) {
-                $res = Resource::create([
-                    'AuthByWeChat'  => $authByWeChat,
-                    'Name'          => $value->name,
-                    'Link'          => $value->link,
-                    'FansNum'       => $value->fan,
-                    'Desp'          => $value->desp,
-                    'Tags'          => $value->tags,
-                    'HeadLinePrice' => $value->headlineprice,
-                    'NonHeadLinePrice'  => $value->nonheadlineprice,
-                    'Addition'      => $value->addition
-                ]);
-            } else {
-                continue;
-            }
-            $tagArr = explode("，", $value->tags);
-            foreach ($tagArr as $tag) {
-                // $count = Tag::where('Name', '=', $tag)->count();
-                $tagItem = Tag::where('Name', '=', $tag)->first();
-                if ($tagItem == NULL) {
-                    $tagItem = Tag::create([
-                        'Name' => $tag
-                        ]);
-                }
-                $res->tags()->attach($tagItem);
-            }
-        }*/
     } 
     
     /**
@@ -287,7 +257,77 @@ class ResController extends Controller
         return redirect('/detailHot');
     }
 
+    /**
+     * Add a Res into the shop cart
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function putInCart($id)
+    {
+        // $user = Auth::user();
+        $user = User::find(1);
+
+        $res = Resource::find($id);        
+        $option = 1; 
+        if ($option) {
+            $price = $res->HeadLinePrice;
+        } else {
+            $price = $res->NonHeadLinePrice;
+        }
+        $res->Purchases += 1;
+
+        $user->resselections()->attach($res, ['Option' => $option, 'Price' => $price]);
+        dd($user->resselections()->get());
+    }
+
+    /**
+     * List the Res in the shop cart
+     * @return [type] [description]
+     */
+    public function listItemInCart()
+    {
+        $user = User::find(1);
+        $item = Resource::find(7);
+        $res = $user->resselections()->get();
+        
+        // dd($res->find(6)); // If Res-6 is in the list.
+        return view('shopCart', ['items' => $res]);
+    }
+
+    public function deleteItemFromCart($id)
+    {
+        // $user = Auth::user();
+        $user = User::find(1);
+        $resInUser = $user->resselections();
+        if ($resInUser->find($id) != NULL) {
+            $res = Resource::find($id);
+            $user->resselections()->detach($res);
+        } else {
+            dd('This Res is Not in Shop List!');
+        }
+        return redirect('/shop/list');
+    }
+
+    public function appoint($id)
+    {
+        $user = User::find(1);
+        $res = Resouce::find($id);
+        $user->resappointment()->attach($res, ['Option' => $option, 'Price' => $price]);
+        dd($user->resappointment()->get());
+    }
     // Test Filter
+    // 
+    // 
+    
+
+    public function listIndex()
+    {
+        // $res = Resource::take(30)->get();
+        $res = Resource::get();
+        // dd($res->count());
+        return view('listSelect', ['items' => $res]);
+    }
+
     /**
      * Filter Res by Fan
      * @param $range => "100-200" 
