@@ -267,16 +267,18 @@ class ResController extends Controller
         // $user = Auth::user();
         $user = User::find(1);
 
-        $res = Resource::find($id);        
-        $option = 1; 
-        if ($option) {
+        $res = Resource::find($id);  
+ 
+        if ($option == 1) {
             $price = $res->HeadLinePrice;
+            $myOption = True;
         } else {
             $price = $res->NonHeadLinePrice;
+            $myOption = False;
         }
         $res->Purchases += 1;
 
-        $user->resselections()->attach($res, ['Option' => $option, 'Price' => $price]);
+        $user->resselections()->attach($res, ['Option' => $myOption, 'Price' => $price]);
         return redirect('/detailHot');
     }
 
@@ -317,10 +319,12 @@ class ResController extends Controller
         $res = Resouce::find($id);
         if ($option == 1) {
             $price = $res->HeadLinePrice;
+            $myOption = True;
         } else {
             $price = $res->NonHeadLinePrice;
+            $myOption = False;
         }
-        $user->resappointment()->attach($res, ['Option' => $option, 'Price' => $price]);
+        $user->resappointment()->attach($res, ['Option' => $myOption, 'Price' => $price]);
         // dd($user->resappointment()->get());
         return redirect('/detailHot');
     }
