@@ -78,7 +78,7 @@
 					<div class="tableFoot">
 						<button class="btn btn-warning fr">立即下单</button>
 						<a class="priceValue fr" href="#" style="margin-right:10px;">查看更多</a>
-						<div class="fr" style="margin-right:20px;">共选择<span class="f_red">0</span>个账号,应付<span class="f_red">0</span>元</div>
+						<div class="fr" style="margin-right:20px;">共选择<span class="f_red">{{ $count }}</span>个账号,应付<span class="f_red">{{ $sumprice }}</span>元</div>
 					</div>
 				</div>
 			</div>

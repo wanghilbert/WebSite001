@@ -262,7 +262,7 @@ class ResController extends Controller
      * @param  [type] $id [description]
      * @return [type]     [description]
      */
-    public function putInCart($id)
+    public function putInCart($id, $option)
     {
         // $user = Auth::user();
         $user = User::find(1);
@@ -277,7 +277,7 @@ class ResController extends Controller
         $res->Purchases += 1;
 
         $user->resselections()->attach($res, ['Option' => $option, 'Price' => $price]);
-        dd($user->resselections()->get());
+        return redirect('/detailHot');
     }
 
     /**
@@ -289,9 +289,12 @@ class ResController extends Controller
         $user = User::find(1);
         $item = Resource::find(7);
         $res = $user->resselections()->get();
-        
-        // dd($res->find(6)); // If Res-6 is in the list.
-        return view('shopCart', ['items' => $res]);
+        $count = $res->count();
+        $sum = 0;
+        foreach ($res as $value) {
+            $sum += $value->pivot->Price;
+        }
+        return view('shopCart', ['items' => $res, 'count' => $count, 'sumprice' => $sum]);
     }
 
     public function deleteItemFromCart($id)
@@ -308,12 +311,18 @@ class ResController extends Controller
         return redirect('/shop/list');
     }
 
-    public function appoint($id)
+    public function appoint($id, $option)
     {
         $user = User::find(1);
         $res = Resouce::find($id);
+        if ($option == 1) {
+            $price = $res->HeadLinePrice;
+        } else {
+            $price = $res->NonHeadLinePrice;
+        }
         $user->resappointment()->attach($res, ['Option' => $option, 'Price' => $price]);
-        dd($user->resappointment()->get());
+        // dd($user->resappointment()->get());
+        return redirect('/detailHot');
     }
     // Test Filter
     // 

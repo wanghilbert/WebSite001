@@ -91,12 +91,12 @@ Route::get('/detailHot', 'HomeController@detailHot');
 // Route::get('/classify', 'HomeController@classify');
 Route::get('/res/collect-{ResId}', 'ResController@collect');
 
-Route::get('/shop/select-{ResId}', 'ResController@putInCart');
+Route::get('/shop/select-{ResId}-{Option}', 'ResController@putInCart');
 
 Route::get('/shop/list', 'ResController@listItemInCart');
 Route::get('/shop/list/delete-{ResId}', 'ResController@deleteItemFromCart');
 
-Route::get('/appointment/select-{id}', 'ResController@appoint');
+Route::get('/appointment/select-{id}-{option}', 'ResController@appoint');
 
 Route::get('/list', 'ResController@listIndex');
 
