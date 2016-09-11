@@ -71,10 +71,10 @@
                         <li><a href="#"><span class="userlink">我的订单</span></a></li>
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}"><span class="userlink">登录</span></a></li>
-                            <li><a href="#"><span class="userlink">注册</span></a></li>
+                            <li><a href="{{ url('/register') }}"><span class="userlink">注册</span></a></li>
                         @else
                             <li>
-                                <a href="{{ url('/login') }}"><span class="userlink">{{ Auth::user()->name }}</span></a>
+                                <a href="{{ url('/login') }}"><span class="userlink">{{ Auth::user()->UserName }}</span></a>
                             </li>
                             <li><a href="{{ url('/logout') }}"><span class="userlink">注销</span></a></li>
                         @endif                          

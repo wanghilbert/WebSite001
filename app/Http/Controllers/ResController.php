@@ -267,6 +267,15 @@ class ResController extends Controller
         // $user = Auth::user();
         $user = User::find(1);
 
+        $itemsInCart = $user->resselections()->get();
+        
+        foreach ($itemsInCart as $value) {
+            if ($value->pivot->ResId == $id) {
+                return redirect('/detailHot');
+                // dd("已存在");
+            }
+        }
+
         $res = Resource::find($id);  
  
         if ($option == 1) {
@@ -316,7 +325,17 @@ class ResController extends Controller
     public function appoint($id, $option)
     {
         $user = User::find(1);
-        $res = Resouce::find($id);
+
+        $itemsInCart = $user->resappointment()->get();
+        
+        foreach ($itemsInCart as $value) {
+            if ($value->pivot->ResId == $id) {
+                return redirect('/detailHot');
+                // dd("已存在");
+            }
+        }
+
+        $res = Resource::find($id);
         if ($option == 1) {
             $price = $res->HeadLinePrice;
             $myOption = True;
