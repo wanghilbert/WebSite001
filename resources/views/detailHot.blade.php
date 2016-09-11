@@ -87,30 +87,34 @@
                         		</div>
                         		<br />
                         		<div class="info_button clearFix">
-                            		<a class="info_button_1 fl" onclick="selectThis()">确认预约</a>
-                            		<a class="info_button_2 fl" onclick="addCart()"><span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</a>
+                            		<a class="info_button_1 fl" id="selectButton">确认预约</a>
+                            		<a class="info_button_2 fl" id="addCartButton"><span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</a>
                         		</div>
-							</div>					
+ 							</div>					
 		            	</div>
 					</div>
 				</div>
 			</div>
+            <div id="getResID" class="hide">{{ $res->ResId }}</div>
 			<!--end of <div class="row" id="main-text"> -->
 			<br /><br /><br /><br /><br />				
 <script type="text/javascript">
+
+    var selectHead = 1;
+    var resID=$('#getResID').text();
+
+    $('#selectButton').attr('href','/appointment/select-'+resID+'-'+selectHead);
+    $('#addCartButton').attr('href','/shop/select-'+resID+'-'+selectHead);
+
     function changePrice(price, i) {
         $('.news_position').removeClass('list_active');
         $('.news_position_' + i).addClass('list_active');
         $('#price').text(price + '元');
+        selectHead=i;
+
+        $('#selectButton').attr('href','/appointment/select-'+resID+'-'+selectHead);
+        $('#addCartButton').attr('href','/shop/select-'+resID+'-'+selectHead);
     }
-    function selectThis(){
-        alert("预约！")
-    };
-    function addCart(){
-        alert("购买！")
-    };
-
-
 </script>
 
 @endsection

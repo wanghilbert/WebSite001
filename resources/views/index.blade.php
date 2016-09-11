@@ -39,7 +39,7 @@
 @endsection
 
 @section('section')
-	
+<div class="row" style="width:950px;margin-left:80px;">
 	@include('contents.search')
 	@include('contents.banner')
 	@include('contents.staticBanner')
@@ -48,5 +48,5 @@
 		@include('contents.classify')
 		@include('contents.hotshow')
 	</div>
-
+</div>
 @endsection

@@ -54,8 +54,8 @@
     </script>   
 </head>
 <body>
-    <div class="container" style="width:1000px">
-        <div class="row" id="menu-bar">
+    <div class="container" >
+        <div class="row " id="menu-bar">
             <nav class="navbar navbar-default" role="navigation">
                 <div>
                     <ul class="nav navbar-nav">
@@ -83,7 +83,9 @@
             </nav>
         </div>
         <!--end of <div class="row" id="menu-bar"> -->
+        <div>
         @yield('section')
+        </div>
         <br /><br /><br /><br /><br />              
         <div class="row" id="footbar" style="background: #555555; color:#FFFFFF;">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: left;padding: 50px 50px 50px 50px;">
