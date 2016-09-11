@@ -38,15 +38,15 @@
 	background:#c3c3c3;;
 }
 .cartPanel{
-	width: 700px;
+	width: 720px;
 	height: 800px;
 	margin-left: 20px;margin-top: 20px;
 	background: #fff; 
 	border: 1px solid #e5e5e5;
 	float: left;
 	overflow:hidden;
-
 }
+
 .cartTable{
  margin-left: 10px;
  margin-right: 10px;

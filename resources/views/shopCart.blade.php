@@ -2,16 +2,18 @@
 
 @section('head')
 <title>购物车</title>
-<link href="bootstrap/css/css_shopping.css" rel="stylesheet">
+<link href="/bootstrap/css/css_shopping.css" rel="stylesheet">
 @endsection
 
 @section('section')
-@include('contents.search')
 
+			<div style="width:1000px;height:800px;margin-left:80px;">
+
+			@include('contents.search')
 			<br />
-			<div style="width:1000px;height:800px;">
+
 				<div class="userPanel">
-					<img src="bootstrap/img/baby.png" style="width:219px;">
+					<img src="/bootstrap/img/baby.png" style="width:219px;" alt="新罗免税店">
 				</div>
 				<div class="cartPanel">
 					<div class="userInfoText" style="margin-top:20px;margin-left:20px;">
@@ -53,7 +55,7 @@
 											<div>{{ $item->Name }}</div>
 											<div>{{ $item->WeChat }}</div>
 										</td>
-										<td>
+										<td>										
 											<div class="headSelect">头条</div>
 											<div class="nonHeadSelect">非头条</div>
 										</td>
@@ -65,7 +67,7 @@
 										</td>
 										<td>
 											<div class="priceValue">
-											<span class="glyphicon glyphicon-trash"></span>
+											<a href="/shop/list/delete-{{$item->ResId}}"><span class="glyphicon glyphicon-trash"></span></a>
 											</div>
 										</td>
 									</tr>		
@@ -76,8 +78,10 @@
 					<div class="tableFoot">
 						<button class="btn btn-warning fr">立即下单</button>
 						<a class="priceValue fr" href="#" style="margin-right:10px;">查看更多</a>
+						<div class="fr" style="margin-right:20px;">共选择<span class="f_red">0</span>个账号,应付<span class="f_red">0</span>元</div>
 					</div>
 				</div>
 			</div>
 
 @endsection
+
