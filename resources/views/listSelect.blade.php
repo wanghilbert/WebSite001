@@ -99,13 +99,13 @@
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a href="# ">北京市</a>
+										<a id="weixin_prov-beijing" href="javascript:void(0)" onclick="procFilterTag('weixin_prov','beijing')">北京市</a>
 									</li>
 									<li>
-										<a href="# ">上海市</a>
+										<a id="weixin_prov-shanghai" href="javascript:void(0)" onclick="procFilterTag('weixin_prov','shanghai')">上海市</a>
 									</li>
 									<li>
-										<a href="# ">广东省</a>
+										<a id="weixin_prov-guangdong" href="javascript:void(0)" onclick="procFilterTag('weixin_prov','guangdong')">广东省</a>
 									</li>
 									<li>
 										<a href="# ">天津市</a>
@@ -181,8 +181,8 @@
 							<div class="" style="float:left;width:80px;margin-right:10px;">
 								<form>
 							       <select class="form-control">
-            							<option>头条</option>
-            							<option>非头条</option>
+            							<option id="news_position-1" onclick="onlyAddTag('news_position','1')">头条</option>
+            							<option id="news_position-2" onclick="onlyAddTag('news_position','2')">非头条</option>
 									</select>
 								</form>
 							</div>
@@ -192,10 +192,10 @@
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a class="hot" href="#" onclick="addReadNumTag()">1000元以下</a>
+										<a id="price_position-0-1000" href="javascript:void(0)" onclick="procFilterTag('price_position','0-1000')">1000元以下</a>
 									</li>
 									<li>
-										<a href="# ">1000元-5000元</a>
+										<a id="price_position-1000-5000" href="javascript:void(0)" onclick="procFilterTag('price_position','1000-5000')">1000元-5000元</a>
 									</li>
 									<li>
 										<a href="# ">5000元-1万元</a>
@@ -214,12 +214,13 @@
 									</li>
 								</ul>
 							</div>
+							<br />
 							<div style="margin-left:200px">
 								<form>
 									<input class="form-control" type="text" name="low"  style="float:left;width:80px">
 									<label class="control-label fl">--</label>
 									<input class="form-control"  type="text" name="high" style="float:left;width:80px;margin-right:20px;">
-									<button type="submit" class="btn btn-default fl">确定</button>
+									<button type="submit" class="btn btn-default fl" onclick="procOnlyAddTag('price_position')">确定</button>
 								</form>
 							</div>										
 						</div>
@@ -229,12 +230,12 @@
 								认证：
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a href="http://taogonghao.com/wemedia.html?weixin_tags=0&page=1 ">不限</a>
+								    <a >不限</a>
 							</div>
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a href="# ">微博认证</a>
+										<a id="weibo_verifytype-yes" href="javascript:void(0)" onclick="procFilterTag('weibo_verifytype','yes')">微博认证</a>
 									</li>
 								</ul>
 							</div>										
@@ -247,7 +248,7 @@
 							<div class="fl">
 								<form>
 									<input class="form-control" type="text" name="searchID" value="微信名称/微信号" style="float:left;width:300px;margin-left:20px;margin-right:20px;">
-									<button type="submit" class="btn btn-default fl">搜索</button>
+									<button class="btn btn-default fl" onclick="procOnlyAddTag('k')">搜索</button>
 								</form>
 							</div>										
 						</div>
@@ -385,7 +386,7 @@
     	var stringBeforeTag=basicHref.substring(0,typePos);
 
     	var firstTagAfterPage=stringBeforeTag.indexOf('&');
-    	var stringBtPageTag=stringBeforeTag.substring(firstTagAfterPage,stringBeforeTag.length);
+    	var stringBtPageTag=stringBeforeTag.substring(firstTagAfterPage,stringBeforeTag.length-1);
 
     	return stringBtPageTag;
     }
@@ -443,14 +444,14 @@
 		var newTag ='';
     	if (-1 == nextTagPos)
     	{
-    		newTag = stringAfterTag+','+tagName;
+    		newTag = '&'+stringAfterTag+','+tagName;
     	}
     	else
     	{
      		var thisTagString=stringAfterPage.substring(0,nextTagPos);
    			var nextTagString = stringAfterPage.substring(nextTagPos,stringAfterPage.length);
 
-   			newTag = thisTagString+','+tagName+nextTagString;
+   			newTag = '&'+thisTagString+','+tagName+nextTagString;
     	}
 
     	var outputTag=stringBeforeNewTag+newTag;
@@ -486,18 +487,15 @@
     	else if(posDot < posNameInThisType)
     	{
      		alert('2');
-   			newTagTypeString = tagTypeString.replace(','+tagName,'');
+   			newTagTypeString = '&'+tagTypeString.replace(','+tagName,'');
     	}
     	else
     	{
      		alert('3');
-   			newTagTypeString = tagTypeString.replace(tagName+',','');
+   			newTagTypeString = '&'+tagTypeString.replace(tagName+',','');
     	}
     	alert('newTag=' + newTagTypeString);
-    	if ((''==newTagTypeString)&&(''==stringAfterTag))
-    	{
-    		stringBtPageTag='';
-    	}
+
     	var outputHref = herfHead+stringBtPageTag+newTagTypeString+stringAfterTag;
      	return outputHref;    	
     }
@@ -523,8 +521,9 @@
 			}
 			else
 			{
-				thisTagTypeString = stringAfterTag.slice(0,posNextTag-1);
+				thisTagTypeString = stringAfterTag.substring(0,posNextTag);
 			}
+			alert(thisTagTypeString);
 			var posNameInThisType = thisTagTypeString.indexOf(tagName);
 
 			if('-1'==posNameInThisType)
