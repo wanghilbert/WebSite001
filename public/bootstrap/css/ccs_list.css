@@ -92,6 +92,11 @@ A:active {
 	COLOR: #FFFFFF
 }
 
+.filter_1 .tagSelected {
+
+	COLOR: #FFFFFF;
+	BACKGROUND: #ff6602;
+}
 
 .limit_height {
 	HEIGHT: 28px; OVERFLOW: hidden
@@ -111,3 +116,4 @@ A:active {
 	font-size:14px;
 	text-align: center;
 }
+

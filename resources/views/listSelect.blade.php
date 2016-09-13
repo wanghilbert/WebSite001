@@ -17,15 +17,15 @@
 								阅读量：
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a href="# ">不限</a>
+								    <a onclick="cleanReadNumTag()">不限</a>
 							</div>
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a class="hot " href="# ">1000以下</a>
+										<a class="hot" id="avg_topreadnum-0-1000" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','0-1000')">1000以下</a>
 									</li>
 									<li>
-										<a href="# ">1000-5000</a>
+										<a id="avg_topreadnum-1000-5000" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','1000-5000')">1000-5000</a>
 									</li>
 									<li>
 										<a href="# ">5000-1万</a>
@@ -59,10 +59,10 @@
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a class="hot " href="# ">1万以下</a>
+										<a class="hot" id="weixin_fans-0-1w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','0-1w')">1万以下</a>
 									</li>
 									<li>
-										<a href="# ">1万-5万</a>
+										<a id="weixin_fans-1w-5w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','1w-5w')">1万-5万</a>
 									</li>
 									<li>
 										<a href="# ">5万-10万</a>
@@ -187,12 +187,12 @@
 								</form>
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a href="#">不限</a>
+								    <a href="#" onclick="cleanRead()">不限</a>
 							</div>
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a class="hot " href="# ">1000元以下</a>
+										<a class="hot" href="#" onclick="addReadNumTag()">1000元以下</a>
 									</li>
 									<li>
 										<a href="# ">1000元-5000元</a>
@@ -343,4 +343,204 @@
 					</div>
 				</div>
 			</div>
+
+<script type="text/javascript">
+	var basicHref=window.location.href;
+	var finalHref=basicHref;		
+
+	$(document).ready(function(){
+
+		var tagArray=basicHref.split('&');
+		var tageNum=0;
+		if (tagArray.length>1)		
+		{
+			tageNum=tagArray.length-1;
+			for (var i = tageNum; i >0; i--)
+			{
+				var tagString = tagArray.pop();
+				
+				var tagTypePos=tagString.indexOf('=');
+				var tagType = tagString.substring(0,tagTypePos);
+				var tagNameString = tagString.substring(tagTypePos+1,tagString.length);
+				var tagNameArray = tagNameString.split(',');
+				var tagNameNum = tagNameArray.length;
+				for(var j=0;j<tagNameNum;j++)
+				{
+					$('#'+tagType+'-'+tagNameArray[j]).addClass('tagSelected');
+				}
+			}
+		}
+	});
+
+	function resetPage()
+	{
+		var pagePos = basicHref.indexOf('page');
+		var stringBeforePage = basicHref.substring(0,pagePos);
+		var headofHref = stringBeforePage + 'page=1';
+		return headofHref;
+	}
+    
+    function getStringBtPageTag(typePos)
+    {
+    	var stringBeforeTag=basicHref.substring(0,typePos);
+
+    	var firstTagAfterPage=stringBeforeTag.indexOf('&');
+    	var stringBtPageTag=stringBeforeTag.substring(firstTagAfterPage,stringBeforeTag.length);
+
+    	return stringBtPageTag;
+    }
+
+	function checkFirstTagInBasic(){
+		var result=false;
+		if (basicHref.indexOf('?')==-1)
+		{
+			basicHref+='?page=1';
+			result=true;
+		}
+		return result;
+	}
+	function cleanFirstTag()
+	{
+		if ('-1'==finalTag.indexOf('&'))
+		{
+			basicHref=basicHref.substring(0,basicHref.indexOf('?'));
+		}
+	}
+
+    function addFirstTagType(tagType,tagName)
+    {
+    	var outputHref='';
+    	var firstTagPosInBasic=-1;
+    	var stringAfterPage='';    	
+
+    	if(checkFirstTagInBasic())
+    	{
+    		outputHref=basicHref+'&'+tagType+'='+tagName;
+    	}
+    	else
+    	{
+     		firstTagPosInBasic=basicHref.indexOf('&');
+    		stringAfterPage=basicHref.substring(firstTagPosInBasic,basicHref.length);
+    		var herfHead = resetPage();
+    		outputHref= herfHead+stringAfterPage+'&'+tagType+'='+tagName;
+    	}
+    	return outputHref;
+    }
+
+    function addMoreTagName(tagType,tagName)
+    {
+
+    	var typePos=basicHref.indexOf(tagType);
+
+    	var stringBtPageTag = getStringBtPageTag(typePos);
+
+    	var herfHead = resetPage();
+        
+    	var stringBeforeNewTag = herfHead + stringBtPageTag;
+
+    	var stringAfterTag=basicHref.substring(typePos,basicHref.length);
+    	var nextTagPos=stringAfterTag.indexOf('&');
+		var newTag ='';
+    	if (-1 == nextTagPos)
+    	{
+    		newTag = stringAfterTag+','+tagName;
+    	}
+    	else
+    	{
+     		var thisTagString=stringAfterPage.substring(0,nextTagPos);
+   			var nextTagString = stringAfterPage.substring(nextTagPos,stringAfterPage.length);
+
+   			newTag = thisTagString+','+tagName+nextTagString;
+    	}
+
+    	var outputTag=stringBeforeNewTag+newTag;
+    	return outputTag;
+    }
+    
+    function delTagName(posTagInBasic,tagTypeString,posNextTag,tagName)
+    {
+    	alert('in:delete');
+    	var stringBtPageTag = getStringBtPageTag(posTagInBasic);
+    	var herfHead = resetPage();
+ 
+    	var stringAfterTag='';
+    	if('-1'==posNextTag)
+    	{
+ 			stringAfterTag='';
+    	}
+    	else
+    	{
+    		stringAfterTag = basicHref.substring(posTagInBasic+posNextTag,basicHref.length);
+    	}
+    	alert('stringAfterTag = '+stringAfterTag);
+    	var posNameInThisType = tagTypeString.indexOf(tagName);
+    	var posDot = tagTypeString.indexOf(',');
+    	var newTagTypeString='';
+    	alert('posName = '+posNameInThisType+' posDot='+posDot);
+
+    	if('-1'==posDot)
+    	{
+    		alert('1');
+			newTagTypeString='';
+    	}    	
+    	else if(posDot < posNameInThisType)
+    	{
+     		alert('2');
+   			newTagTypeString = tagTypeString.replace(','+tagName,'');
+    	}
+    	else
+    	{
+     		alert('3');
+   			newTagTypeString = tagTypeString.replace(tagName+',','');
+    	}
+    	alert('newTag=' + newTagTypeString);
+    	if ((''==newTagTypeString)&&(''==stringAfterTag))
+    	{
+    		stringBtPageTag='';
+    	}
+    	var outputHref = herfHead+stringBtPageTag+newTagTypeString+stringAfterTag;
+     	return outputHref;    	
+    }
+
+	function procFilterTag(tagType,tagName){
+
+		var typePosInBasic=basicHref.indexOf(tagType);
+
+		if (-1 == typePosInBasic) 
+		{
+			alert('goto:addFist');
+			finalTag=addFirstTagType(tagType,tagName);
+		}
+		else
+		{
+
+			var stringAfterTag=basicHref.substring(typePosInBasic,basicHref.length);
+			var posNextTag = stringAfterTag.indexOf('&');
+			var thisTagTypeString ='';
+			if ('-1'==posNextTag)
+			{
+				thisTagTypeString = stringAfterTag
+			}
+			else
+			{
+				thisTagTypeString = stringAfterTag.slice(0,posNextTag-1);
+			}
+			var posNameInThisType = thisTagTypeString.indexOf(tagName);
+
+			if('-1'==posNameInThisType)
+			{	
+				alert('goto:addMore');
+				finalTag=addMoreTagName(tagType,tagName);
+			}
+			else
+			{
+				alert('goto:delete');
+				finalTag=delTagName(typePosInBasic,thisTagTypeString,posNextTag,tagName);
+			}
+		}
+		alert(finalTag);
+		window.location = finalTag;		
+	}
+</script>
+
 @endsection
