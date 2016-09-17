@@ -8,7 +8,7 @@
 			</div>
 			<div class="row" style="margin-top: 20px; margin-left:20px;">
 				
-				<a class="classbutton" id="class-1-1" role="button" data-toggle="popover">影视</a>
+				<a class="classbutton" id="weixin_tags-1" role="button" href="list?page=1&weixin_tags=1" >影视</a>
 				<div id="popover-title" class="hide">
 					<label>加入我的列表 </label>
 					<input type="checkbox">
@@ -36,21 +36,21 @@
 					</table>
 				</div>
 
-				<a class="classbutton" id="class-1-2" role="button" data-toggle="popover">娱乐</a>
-				<a class="classbutton" role="button" href="#">时尚</a>
-				<a class="classbutton" role="button" href="#">美妆</a>
-				<a class="classbutton" role="button" href="#">体育</a>
-				<a class="classbutton" role="button" href="#">科技</a>
-				<a class="classbutton" role="button" href="#">汽车</a>
+				<a class="classbutton" id="weixin_tags-2" role="button" href="list?page=1&weixin_tags=2" >娱乐</a>
+				<a class="classbutton" id="weixin_tags-3" role="button" href="list?page=1&weixin_tags=3" >时尚</a>
+				<a class="classbutton" id="weixin_tags-4" role="button" href="list?page=1&weixin_tags=4" >美妆</a>
+				<a class="classbutton" id="weixin_tags-5" role="button" href="list?page=1&weixin_tags=5" >体育</a>
+				<a class="classbutton" id="weixin_tags-6" role="button" href="list?page=1&weixin_tags=6" >科技</a>
+				<a class="classbutton" id="weixin_tags-7" role="button" href="list?page=1&weixin_tags=7" >汽车</a>
 			</div>
 				<div class="row" style="margin-top: 20px; margin-left:20px;">
-					<a class="classbutton" role="button" href="#">游戏</a>
-					<a class="classbutton" role="button" href="#">美食</a>
-					<a class="classbutton" role="button" href="#">情感</a>
-					<a class="classbutton" role="button" href="#">健康</a>
-					<a class="classbutton" role="button" href="#">旅行</a>
-					<a class="classbutton" role="button" href="#">教育</a>
-					<a class="classbutton" id="moreButton" role="button" href="#">更多</a>
+					<a class="classbutton" id="weixin_tags-8" role="button" href="list?page=1&weixin_tags=8" >游戏</a>
+					<a class="classbutton" id="weixin_tags-9" role="button" href="list?page=1&weixin_tags=9" >美食</a>
+					<a class="classbutton" id="weixin_tags-10" role="button" href="list?page=1&weixin_tags=10" >情感</a>
+					<a class="classbutton" id="weixin_tags-11" role="button" href="list?page=1&weixin_tags=11">健康</a>
+					<a class="classbutton" id="weixin_tags-12" role="button" href="list?page=1&weixin_tags=12">旅行</a>
+					<a class="classbutton" id="weixin_tags-13" role="button" href="list?page=1&weixin_tags=13">教育</a>
+					<a class="classbutton" id="moreButton" role="button">更多</a>
 				</div>
 				<div class="row" id="moreTag" style="margin-top: 20px; margin-left:20px;">
 					<a class="classbutton" role="button" href="#">游戏</a>
@@ -78,6 +78,8 @@
 						$("#moreTag").hide();
 						$("#moreButton").text("更多");						
 					}
-				});				
+				});	
+
+
 			});
 </script>

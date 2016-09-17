@@ -8,6 +8,7 @@
 @section('section')
 @include('contents.search')
 @include('contents.classify')
+		<div>
 			<div class="row">
 				<div class="filter" >
 					<h2></h2>
@@ -17,7 +18,7 @@
 								阅读量：
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a onclick="cleanReadNumTag()">不限</a>
+								    <a href="javascript:void(0)" onclick="noLimitTag('avg_topreadnum')">不限</a>
 							</div>
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
@@ -28,22 +29,22 @@
 										<a id="avg_topreadnum-1000-5000" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','1000-5000')">1000-5000</a>
 									</li>
 									<li>
-										<a href="# ">5000-1万</a>
+										<a id="avg_topreadnum-5000-1w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','5000-1w')">5000-1万</a>
 									</li>
 									<li>
-										<a href="# ">1万-2万</a>
+										<a id="avg_topreadnum-1w-2w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','1w-2w')">1万-2万</a>
 									</li>
 									<li>
-										<a href="# ">2万-4万</a>
+										<a id="avg_topreadnum-2w-4w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','2w-4w')">2万-4万</a>
 									</li>
 									<li>
-										<a href="# ">4万-8万</a>
+										<a id="avg_topreadnum-4w-8w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','4w-8w')">4万-8万</a>
 									</li>
 									<li>
-										<a href="# ">8万-10万</a>
+										<a id="avg_topreadnum-8w-10w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','8w-10w')">8万-10万</a>
 									</li>
 									<li>
-										<a href="# ">10万以上</a>
+										<a id="avg_topreadnum-10w-up" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','10w-up')">10万以上</a>
 									</li>
 								</ul>
 							</div>										
@@ -54,7 +55,7 @@
 								粉丝数：
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a href="# ">不限</a>
+								    <a href="javascript:void(0)" onclick="noLimitTag('weixin_fans')">不限</a>
 							</div>
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
@@ -65,25 +66,25 @@
 										<a id="weixin_fans-1w-5w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','1w-5w')">1万-5万</a>
 									</li>
 									<li>
-										<a href="# ">5万-10万</a>
+										<a id="weixin_fans-5w-10w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','5w-10w')">5万-10万</a>
 									</li>
 									<li>
-										<a href="# ">10万-20万</a>
+										<a id="weixin_fans-10w-20w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','10w-20w')">10万-20万</a>
 									</li>
 									<li>
-										<a href="# ">20万-40万</a>
+										<a id="weixin_fans-20w-40w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','20w-40w')">20万-40万</a>
 									</li>
 									<li>
-										<a href="# ">40万-80万</a>
+										<a id="weixin_fans-40w-80w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','40w-80w')">40万-80万</a>
 									</li>
 									<li>
-										<a href="# ">80万-120万</a>
+										<a id="weixin_fans-80w-120w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','80w-120w')">80万-120万</a>
 									</li>
 									<li>
-										<a href="# ">120万-200万</a>
+										<a id="weixin_fans-120w-200w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','120w-200w')">120万-200万</a>
 									</li>
 									<li>
-										<a href="# ">200万以上</a>
+										<a id="weixin_fans-200w-up" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','120w-200w')">200万以上</a>
 									</li>
 								</ul>
 							</div>										
@@ -94,80 +95,106 @@
 								区域：
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a href="#">不限</a>
+								    <a href="javascript:void(0)" onclick="noLimitTag('weixin_prov')">不限</a>
 							</div>
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a id="weixin_prov-beijing" href="javascript:void(0)" onclick="procFilterTag('weixin_prov','beijing')">北京市</a>
+										<a id="weixin_prov-beijing" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','beijing')">北京市</a>
 									</li>
 									<li>
-										<a id="weixin_prov-shanghai" href="javascript:void(0)" onclick="procFilterTag('weixin_prov','shanghai')">上海市</a>
+										<a id="weixin_prov-shanghai" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','shanghai')">上海市</a>
 									</li>
 									<li>
-										<a id="weixin_prov-guangdong" href="javascript:void(0)" onclick="procFilterTag('weixin_prov','guangdong')">广东省</a>
+										<a id="weixin_prov-guangdong" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','guangdong')">广东省</a>
 									</li>
 									<li>
-										<a href="# ">天津市</a>
+										<a id="weixin_prov-tianjin" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','tianjin')">天津市</a>
 									</li>
 									<li>
-										<a href="# ">河北省</a>
+										<a id="weixin_prov-hebei" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','hebei')">河北省</a>
 									</li>
 									<li>
-										<a href="# ">山西省</a>
+										<a id="weixin_prov-shanxi" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','shanxi')">山西省</a>
 									</li>
 									<li>
-										<a href="# ">内蒙古自治区</a>
+										<a id="weixin_prov-neimeng" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','neimeng')">内蒙古自治区</a>
 									</li>
 									<li>
-										<a href="# ">辽宁省</a>
+										<a id="weixin_prov-liaoning" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','liaoning')">辽宁省</a>
 									</li>
 									<li>
-										<a href="# ">吉林省</a>
+										<a id="weixin_prov-jilin" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','jilin')">吉林省</a>
 									</li>
 									<li>
-										<a href="# ">黑龙江省</a>
+										<a id="weixin_prov-heilongjiang" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','heilongjiang')">黑龙江省</a>
 									</li>
 									<li>
-										<a href="# ">浙江省</a>
+										<a id="weixin_prov-zhejiang" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','zhejiang')">浙江省</a>
 									</li>
 									<li>
-										<a href="# ">更多区域</a>
+										<a id="weixin_prov-anhui" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','anhui')">安徽省</a>
+									</li>
+									<li>
+										<a id="moreProvButton">更多区域</a>
 									</li>
 								</ul>								
-								<ul  id="moreArea" class="clearFix limit_height">
+								<ul  id="moreProv_1" class="clearFix limit_height">
 									<li>
-										<a href="# ">北京市</a>
+										<a id="weixin_prov-fujian" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','fujian')">福建省</a>
 									</li>
 									<li>
-										<a href="# ">上海市</a>
+										<a id="weixin_prov-jiangxi" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','jiangxi')">江西省</a>
 									</li>
 									<li>
-										<a href="# ">广东省</a>
+										<a id="weixin_prov-shandong" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','shandong')">山东省</a>
 									</li>
 									<li>
-										<a href="# ">天津市</a>
+										<a id="weixin_prov-henan" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','henan')">河南省</a>
 									</li>
 									<li>
-										<a href="# ">河北省</a>
+										<a id="weixin_prov-hubei" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','hubei')">湖北省</a>
 									</li>
 									<li>
-										<a href="# ">山西省</a>
+										<a id="weixin_prov-hunan" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','hunan')">湖南省</a>
 									</li>
 									<li>
-										<a href="# ">内蒙古自治区</a>
+										<a id="weixin_prov-guangxi" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','guangxi')">广西壮族自治区</a>
 									</li>
 									<li>
-										<a href="# ">辽宁省</a>
+										<a id="weixin_prov-hainan" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','hainan')">海南省</a>
 									</li>
 									<li>
-										<a href="# ">吉林省</a>
+										<a id="weixin_prov-chongqing" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','chongqing')">重庆市</a>
 									</li>
 									<li>
-										<a href="# ">黑龙江省</a>
+										<a id="weixin_prov-sichuan" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','sichuan')">四川省</a>
 									</li>
 									<li>
-										<a href="# ">浙江省</a>
+										<a id="weixin_prov-guizhou" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','guizhou')">贵州省</a>
+									</li>
+									<li>
+										<a id="weixin_prov-yunnan" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','yunnan')">云南省</a>
+									</li>
+								</ul>
+								<ul  id="moreProv_2" class="clearFix limit_height">
+									<li>
+										<a id="weixin_prov-xizang" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','xizang')">西藏自治区</a>
+									</li>
+									<li>
+										<a id="weixin_prov-shanxi2" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','shanxi2')">陕西省</a>
+									</li>
+									<li>
+										<a id="weixin_prov-gansu" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','gansu')">甘肃省</a>
+									</li>
+									<li>
+										<a id="weixin_prov-qinghai" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','qinghai')">青海省</a>
+									</li>
+									<li>
+										<a id="weixin_prov-ningxia" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','ningxia')">宁夏回族自治区</a>
+									</li>
+									<li>
+										<a id="weixin_prov-xinjiang" href="javascript:void(0)" onclick="onlyAddTag('weixin_prov','xinjiang')">新疆维吾尔自治区</a>
 									</li>
 								</ul>
 							</div>										
@@ -178,18 +205,16 @@
 							<div class="filter_label fl ">
 								价格：
 							</div>
-							<div class="" style="float:left;width:80px;margin-right:10px;">
-								<form>
+							<div class="" style="float:left;width:80px;height:30px; margin-right:10px;">
 							       <select class="form-control">
             							<option id="news_position-1" onclick="onlyAddTag('news_position','1')">头条</option>
             							<option id="news_position-2" onclick="onlyAddTag('news_position','2')">非头条</option>
 									</select>
-								</form>
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a href="#" onclick="cleanRead()">不限</a>
+								    <a href="javascript:void(0)" onclick="noLimitTag('price_position')">不限</a>
 							</div>
-							<div class="filter_select fl ">
+							<div class="filter_select fl">
 								<ul class="clearFix limit_height ">
 									<li>
 										<a id="price_position-0-1000" href="javascript:void(0)" onclick="procFilterTag('price_position','0-1000')">1000元以下</a>
@@ -198,39 +223,35 @@
 										<a id="price_position-1000-5000" href="javascript:void(0)" onclick="procFilterTag('price_position','1000-5000')">1000元-5000元</a>
 									</li>
 									<li>
-										<a href="# ">5000元-1万元</a>
+										<a id="price_position-5000-1w" href="javascript:void(0)" onclick="procFilterTag('price_position','5000-1w')">5000元-1万元</a>
 									</li>
 									<li>
-										<a href="# ">5000元-1万元</a>
+										<a id="price_position-1w-5w" href="javascript:void(0)" onclick="procFilterTag('price_position','1w-5w')">1万元-5万元</a>
 									</li>
 									<li>
-										<a href="# ">1万元-5万元</a>
+										<a id="price_position-5w-10w" href="javascript:void(0)" onclick="procFilterTag('price_position','5w-10w')">5万元-10万元</a>
 									</li>
 									<li>
-										<a href="# ">5万元-10万元</a>
-									</li>
-									<li>
-										<a href="# ">10万元以上</a>
+										<a id="price_position-10w-up" href="javascript:void(0)" onclick="procFilterTag('price_position','10w-up')">10万元以上</a>
 									</li>
 								</ul>
 							</div>
 							<br />
-							<div style="margin-left:200px">
-								<form>
-									<input class="form-control" type="text" name="low"  style="float:left;width:80px">
-									<label class="control-label fl">--</label>
-									<input class="form-control"  type="text" name="high" style="float:left;width:80px;margin-right:20px;">
-									<button type="submit" class="btn btn-default fl" onclick="procOnlyAddTag('price_position')">确定</button>
-								</form>
+							<div style="margin-left:250px;margin-top:20px;">
+								<input id="inputPriceLow" class="fl" type="text" style="float:left;width:80px" value="0">
+								<label class="fl">--</label>
+								<input id="inputPriceHigh" class="fl" type="text" style="float:left;width:80px;margin-right:20px;" value="10000">
+								<button class="btn btn-default fl" onclick="procInputPrice('price_position')">确定</button>
 							</div>										
 						</div>
+
 						<!--END of Line Price -->
 						<div class="clearFix filter_list " style="border-bottom: #e5e5e5 1px dotted ">
 							<div class="filter_label fl ">
 								认证：
 							</div>
 							<div class="filter_nolimit fl bg_orange ">
-								    <a >不限</a>
+								    <a href="javascript:void(0)" onclick="noLimitTag('weibo_verifytype')">不限</a>
 							</div>
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
@@ -246,10 +267,8 @@
 								关键词：
 							</div>
 							<div class="fl">
-								<form>
-									<input class="form-control" type="text" name="searchID" value="微信名称/微信号" style="float:left;width:300px;margin-left:20px;margin-right:20px;">
-									<button class="btn btn-default fl" onclick="procOnlyAddTag('k')">搜索</button>
-								</form>
+								<input id="searchInput" type="text" value="微信名称/微信号" style="float:left;width:300px;margin-left:20px;margin-right:20px;">
+								<button class="btn btn-default fl" onclick="procInputSearch('k')">搜索</button>
 							</div>										
 						</div>
 						<!--END of Line Search -->
@@ -322,37 +341,54 @@
 						@endforeach
 					</tbody>
 				</table>
-				<div>
-					<div class="fr">
-					<form class="fr">
-						<label>跳转到第</label>
-						<input type="text" name="pageNum" style="width:80px;">
-						<label>页</label>
-						<button type="submit" class="btn btn-default fr" style="margin-left:20px">确定</button>
-					</form>
-					</div>
-					<div class="fr">
-						<ul class="pagination">
-    						<li><a href="#">&laquo;</a></li>
-   							<li><a href="#">1</a></li>
-    						<li><a href="#">2</a></li>
-    						<li><a href="#">3</a></li>
-    						<li><a href="#">4</a></li>
-   							<li><a href="#">5</a></li>
-    						<li><a href="#">&raquo;</a></li>
-						</ul> 
-					</div>
-				</div>
 			</div>
+			<!--end of table -->
+			<div class="row fr">
+				<ul class="pagination fl">
+    				<li id="page_li_prev"><a href="javascript:void(0)" onclick="procPage('prev')">上一页</a></li>
+   					<li id="page_li_1"><a href="javascript:void(0)" onclick="procPage('1')">1</a></li>
+    				<li id="page_li_2"><a href="javascript:void(0)" onclick="procPage('2')">2</a></li>
+    				<li><a href="#">3</a></li>
+    				<li><a href="#">4</a></li>
+    				<li><a href="#">5</a></li>
+    				<li id="page_li_next"><a href="javascript:void(0)" onclick="procPage('next')">下一页</a></li>
+				</ul>
+				<div class="pageLabel">跳到第
+				</div>
+				<input id="inputPage" class="pageLabel" type="text" name="jumpPage" style="width:50px;">
+				<div class="pageLabel">页
+				</div>
+				<div id="totalPageNum" class="hide">5</div>
+				<input class="btn btn-default" type="button" value="确定" onclick="procInputPage()" style="margin-top:20px;margin-left:10px;">
+			</div>
+		</div>
 
 <script type="text/javascript">
+
 	var basicHref=window.location.href;
-	var finalHref=basicHref;		
+	var finalHref=basicHref;	
+	var maxPageNum=$('#totalPageNum').html();
 
 	$(document).ready(function(){
-
 		var tagArray=basicHref.split('&');
 		var tageNum=0;
+		var curPage=1;
+		var pageString=tagArray[0];
+		var pagePos = pageString.indexOf('=');
+		if (pagePos!=-1) 
+		{
+			curPage = pageString.substring(pagePos+1,pageString.length);
+		}
+		$('#page_li_'+curPage).addClass("active");
+		if ('1'==curPage)
+		{
+			$('#page_li_prev').addClass("disabled");
+		}
+		if (maxPageNum==curPage)
+		{
+			$('#page_li_next').addClass("disabled");
+		}
+
 		if (tagArray.length>1)		
 		{
 			tageNum=tagArray.length-1;
@@ -367,12 +403,114 @@
 				var tagNameNum = tagNameArray.length;
 				for(var j=0;j<tagNameNum;j++)
 				{
-					$('#'+tagType+'-'+tagNameArray[j]).addClass('tagSelected');
+					if('news_position'==tagType)
+					{
+						$('#'+tagType+'-'+tagNameArray[j]).attr('selected','selected');
+					}
+					else if('weixin_tags'==tagType)
+					{
+						$('#'+tagType+'-'+tagNameArray[j]).addClass('bg_orange');
+					}
+					else
+					{
+						$('#'+tagType+'-'+tagNameArray[j]).addClass('tagSelected');
+					}
 				}
 			}
 		}
-	});
 
+		$("#moreProv_1").hide();
+		$("#moreProv_2").hide();
+		$("#moreProvButton").click(function(){
+			if ($("#moreProv_1").is(":hidden")) 
+			{
+				$("#moreProv_1").show();
+				$("#moreProv_2").show();
+				$("#moreProvButton").text("收起");
+			}
+			else
+			{
+				$("#moreProv_1").hide();
+				$("#moreProv_2").hide();
+				$("#moreProvButton").text("更多");						
+			}
+		});	
+
+	});
+	function pagePrev(curPage)
+	{
+		var pageInt= parseInt(curPage);
+		if (pageInt>1)
+		{
+			pageInt=pageInt-1;
+		}
+
+		return pageInt.toString();
+	}
+	function pageNext(curPage)
+	{
+		var pageInt= parseInt(curPage);
+		if(curPage<maxPageNum)
+		{
+			pageInt=pageInt+1;
+		}
+		return pageInt.toString();
+	}
+
+	function procPage(operate)
+	{
+		var posPageInBasic=basicHref.indexOf('?page=');
+		if (-1==posPageInBasic)
+		{
+			basicHref=basicHref+'?page=1';
+		}
+		var posFirstTag = basicHref.indexOf('&');
+		var pageString='';
+		var otherString ='';
+		if (-1==posFirstTag)
+		{
+			pageString=basicHref;
+		}
+		else
+		{
+			pageString = basicHref.substring(0,posFirstTag);
+			otherString = basicHref.substring(posFirstTag,basicHref.length);
+		}
+
+
+		var posPage = pageString.indexOf('=');
+		var stringBeforePage = pageString.substring(0,posPage+1);
+		var curPage = pageString.substring(posPage+1,pageString.length);
+		
+		if ('next'==operate) 
+		{
+			curPage=pageNext(curPage);
+		}
+		else if ('prev'==operate)
+		{
+			curPage=pagePrev(curPage);
+		}
+		else
+		{
+			curPage=operate;
+		}
+		finalHref= stringBeforePage+curPage+otherString;
+		alert(finalHref);
+		window.location = finalHref;		
+
+	}
+	function procInputPage()
+	{
+		var inputPage=$('#inputPage').val();
+		if (inputPage >maxPageNum)
+		{
+			alert('总页数少于'+maxPageNum+'页，请重新输入!');
+		}
+		else
+		{
+			procPage(inputPage);
+		}
+	}
 	function resetPage()
 	{
 		var pagePos = basicHref.indexOf('page');
@@ -396,6 +534,11 @@
 		if (basicHref.indexOf('?')==-1)
 		{
 			basicHref+='?page=1';
+			result=true;
+		}
+		else if (basicHref.indexOf('&')==-1)
+		{
+			basicHref=resetPage();
 			result=true;
 		}
 		return result;
@@ -448,8 +591,8 @@
     	}
     	else
     	{
-     		var thisTagString=stringAfterPage.substring(0,nextTagPos);
-   			var nextTagString = stringAfterPage.substring(nextTagPos,stringAfterPage.length);
+     		var thisTagString=stringAfterTag.substring(0,nextTagPos);
+   			var nextTagString = stringAfterTag.substring(nextTagPos,stringAfterTag.length);
 
    			newTag = '&'+thisTagString+','+tagName+nextTagString;
     	}
@@ -460,7 +603,6 @@
     
     function delTagName(posTagInBasic,tagTypeString,posNextTag,tagName)
     {
-    	alert('in:delete');
     	var stringBtPageTag = getStringBtPageTag(posTagInBasic);
     	var herfHead = resetPage();
  
@@ -473,28 +615,22 @@
     	{
     		stringAfterTag = basicHref.substring(posTagInBasic+posNextTag,basicHref.length);
     	}
-    	alert('stringAfterTag = '+stringAfterTag);
     	var posNameInThisType = tagTypeString.indexOf(tagName);
     	var posDot = tagTypeString.indexOf(',');
     	var newTagTypeString='';
-    	alert('posName = '+posNameInThisType+' posDot='+posDot);
-
+ 
     	if('-1'==posDot)
     	{
-    		alert('1');
 			newTagTypeString='';
     	}    	
     	else if(posDot < posNameInThisType)
     	{
-     		alert('2');
    			newTagTypeString = '&'+tagTypeString.replace(','+tagName,'');
     	}
     	else
     	{
-     		alert('3');
-   			newTagTypeString = '&'+tagTypeString.replace(tagName+',','');
+    		newTagTypeString = '&'+tagTypeString.replace(tagName+',','');
     	}
-    	alert('newTag=' + newTagTypeString);
 
     	var outputHref = herfHead+stringBtPageTag+newTagTypeString+stringAfterTag;
      	return outputHref;    	
@@ -502,11 +638,12 @@
 
 	function procFilterTag(tagType,tagName){
 
+
+
 		var typePosInBasic=basicHref.indexOf(tagType);
 
 		if (-1 == typePosInBasic) 
 		{
-			alert('goto:addFist');
 			finalTag=addFirstTagType(tagType,tagName);
 		}
 		else
@@ -523,22 +660,100 @@
 			{
 				thisTagTypeString = stringAfterTag.substring(0,posNextTag);
 			}
-			alert(thisTagTypeString);
 			var posNameInThisType = thisTagTypeString.indexOf(tagName);
 
 			if('-1'==posNameInThisType)
 			{	
-				alert('goto:addMore');
 				finalTag=addMoreTagName(tagType,tagName);
 			}
 			else
 			{
-				alert('goto:delete');
 				finalTag=delTagName(typePosInBasic,thisTagTypeString,posNextTag,tagName);
 			}
 		}
 		alert(finalTag);
 		window.location = finalTag;		
+	}
+
+	function noLimitTag(tagType)
+	{
+		var posTagInBasic = basicHref.indexOf(tagType);
+    	var stringBtPageTag = getStringBtPageTag(posTagInBasic);
+    	var herfHead = resetPage();
+    	var stringWithThisTag=basicHref.substring(posTagInBasic,basicHref.length);
+    	var posNextTag= stringWithThisTag.indexOf('&');
+    	var stringAfterTag='';
+    	if('-1'==posNextTag)
+    	{
+ 			stringAfterTag='';
+    	}
+    	else
+    	{
+    		stringAfterTag = basicHref.substring(posTagInBasic+posNextTag,basicHref.length);
+    	}
+    	var outputHref = herfHead+stringBtPageTag+stringAfterTag;
+    	alert(outputHref);
+		window.location = outputHref;		
+	}
+ 
+	function onlyAddTag(tagType,tagName)
+	{
+		var finalTag='';
+		var typePosInBasic=basicHref.indexOf(tagType);
+
+		if (-1 == typePosInBasic) 
+		{
+			finalTag=addFirstTagType(tagType,tagName);
+		}
+		else
+		{
+    		var typePos=basicHref.indexOf(tagType);
+
+    		var stringBtPageTag = getStringBtPageTag(typePos);
+
+    		var herfHead = resetPage();
+        
+    		var stringBeforeNewTag = herfHead + stringBtPageTag;
+
+    		var stringAfterTag=basicHref.substring(typePos,basicHref.length);
+    		var nextTagPos=stringAfterTag.indexOf('&');
+			var newTag ='';
+
+    		if (-1 == nextTagPos)
+    		{
+    			newTag = '&'+tagType+'='+tagName;
+    		}
+    		else
+    		{
+    			var thisTagString=stringAfterTag.substring(0,nextTagPos);
+  				var nextTagString = stringAfterTag.substring(nextTagPos,stringAfterTag.length);
+   				newTag = '&'+tagType+'='+tagName+nextTagString;
+    		}
+    		finalTag=stringBeforeNewTag+newTag;
+ 		}
+		window.location = finalTag;		
+	} 
+
+	function procInputSearch(tagType)
+	{
+		var input=$('#searchInput').val();
+		onlyAddTag(tagType,input);
+	}
+	function procInputPrice(tagType)
+	{
+		var inputLow = $('#inputPriceLow').val();
+		var inputHigh = $('#inputPriceHigh').val();
+		var lowInt = parseInt(inputLow);
+		var highInt = parseInt(inputHigh);
+		if(lowInt < highInt)
+		{
+			var tagName=inputLow+'-'+inputHigh;
+			procFilterTag(tagType,tagName);
+		}
+		else
+		{
+			alert('请输入正确的价格区间！');
+		}
 	}
 </script>
 

@@ -76,10 +76,12 @@ A:active {
 	COLOR: #fff
 }
 .filter_select {
-	POSITION: relative; WIDTH: 545px
+	POSITION: relative; WIDTH: 545px;
+	OVERFLOW: visible;
 }
 .filter_select UL {
-	WIDTH: 700px
+	WIDTH: 950px;
+	OVERFLOW: visible;
 }
 
 .filter_1 li {
@@ -99,7 +101,7 @@ A:active {
 }
 
 .limit_height {
-	HEIGHT: 28px; OVERFLOW: hidden
+	HEIGHT: 28px; OVERFLOW: visible;
 }
 
 .bg_orange {
@@ -117,3 +119,9 @@ A:active {
 	text-align: center;
 }
 
+.pageLabel{
+	font-size:large;
+	margin-top:20px;
+	margin-left:15px;
+	float: left;
+}
