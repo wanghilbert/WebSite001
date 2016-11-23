@@ -29,22 +29,22 @@
 										<a id="avg_topreadnum-1000-5000" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','1000-5000')">1000-5000</a>
 									</li>
 									<li>
-										<a id="avg_topreadnum-5000-1w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','5000-1w')">5000-1万</a>
+										<a id="avg_topreadnum-5000-1w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','5000-10000')">5000-1万</a>
 									</li>
 									<li>
-										<a id="avg_topreadnum-1w-2w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','1w-2w')">1万-2万</a>
+										<a id="avg_topreadnum-1w-2w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','10000-20000')">1万-2万</a>
 									</li>
 									<li>
-										<a id="avg_topreadnum-2w-4w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','2w-4w')">2万-4万</a>
+										<a id="avg_topreadnum-2w-4w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','20000-40000')">2万-4万</a>
 									</li>
 									<li>
-										<a id="avg_topreadnum-4w-8w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','4w-8w')">4万-8万</a>
+										<a id="avg_topreadnum-4w-8w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','40000-80000')">4万-8万</a>
 									</li>
 									<li>
-										<a id="avg_topreadnum-8w-10w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','8w-10w')">8万-10万</a>
+										<a id="avg_topreadnum-8w-10w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','80000-100000')">8万-10万</a>
 									</li>
 									<li>
-										<a id="avg_topreadnum-10w-up" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','10w-up')">10万以上</a>
+										<a id="avg_topreadnum-10w-up" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','100000-0')">10万以上</a>
 									</li>
 								</ul>
 							</div>										
@@ -60,31 +60,31 @@
 							<div class="filter_select fl ">
 								<ul class="clearFix limit_height ">
 									<li>
-										<a class="hot" id="weixin_fans-0-1w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','0-1w')">1万以下</a>
+										<a class="hot" id="weixin_fans-0-1w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','0-10000')">1万以下</a>
 									</li>
 									<li>
-										<a id="weixin_fans-1w-5w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','1w-5w')">1万-5万</a>
+										<a id="weixin_fans-1w-5w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','10000-50000')">1万-5万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-5w-10w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','5w-10w')">5万-10万</a>
+										<a id="weixin_fans-5w-10w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','50000-100000')">5万-10万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-10w-20w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','10w-20w')">10万-20万</a>
+										<a id="weixin_fans-10w-20w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','100000-200000')">10万-20万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-20w-40w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','20w-40w')">20万-40万</a>
+										<a id="weixin_fans-20w-40w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','200000-400000')">20万-40万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-40w-80w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','40w-80w')">40万-80万</a>
+										<a id="weixin_fans-40w-80w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','400000-800000')">40万-80万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-80w-120w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','80w-120w')">80万-120万</a>
+										<a id="weixin_fans-80w-120w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','800000-1200000')">80万-120万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-120w-200w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','120w-200w')">120万-200万</a>
+										<a id="weixin_fans-120w-200w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','1200000-2000000')">120万-200万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-200w-up" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','120w-200w')">200万以上</a>
+										<a id="weixin_fans-200w-up" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','2000000-0')">200万以上</a>
 									</li>
 								</ul>
 							</div>										
@@ -342,23 +342,16 @@
 					</tbody>
 				</table>
 			</div>
+			<div>
+				{{ $items->links() }}
+			</div>
 			<!--end of table -->
 			<div class="row fr">
-				<ul class="pagination fl">
-    				<li id="page_li_prev"><a href="javascript:void(0)" onclick="procPage('prev')">上一页</a></li>
-   					<li id="page_li_1"><a href="javascript:void(0)" onclick="procPage('1')">1</a></li>
-    				<li id="page_li_2"><a href="javascript:void(0)" onclick="procPage('2')">2</a></li>
-    				<li><a href="#">3</a></li>
-    				<li><a href="#">4</a></li>
-    				<li><a href="#">5</a></li>
-    				<li id="page_li_next"><a href="javascript:void(0)" onclick="procPage('next')">下一页</a></li>
-				</ul>
 				<div class="pageLabel">跳到第
 				</div>
 				<input id="inputPage" class="pageLabel" type="text" name="jumpPage" style="width:50px;">
 				<div class="pageLabel">页
 				</div>
-				<div id="totalPageNum" class="hide">5</div>
 				<input class="btn btn-default" type="button" value="确定" onclick="procInputPage()" style="margin-top:20px;margin-left:10px;">
 			</div>
 		</div>
