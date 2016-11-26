@@ -20,7 +20,7 @@
 						<b>购物车(</b>
 						<b class="f_red">{{ $count }}</b>
 						<b>/</b>
-						<b class="f_red">30</b>
+						<b class="f_red">{{ $count }}</b>
 						<b>)</b>						
 					</div>
 					<div class="cartTablePanel">

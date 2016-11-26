@@ -255,7 +255,7 @@ class ResController extends Controller
         $res = Resource::find($id);
         $res->Collects += 1;
         $res->save();
-        return redirect('/detailHot');
+        return redirect("/detailHot-$id");
     }
 
     /**
@@ -272,7 +272,7 @@ class ResController extends Controller
         
         foreach ($itemsInCart as $value) {
             if ($value->pivot->ResId == $id) {
-                return redirect('/detailHot');
+                return redirect("/detailHot-$id");
                 // dd("已存在");
             }
         }
@@ -289,7 +289,7 @@ class ResController extends Controller
         $res->Purchases += 1;
 
         $user->resselections()->attach($res, ['Option' => $myOption, 'Price' => $price]);
-        return redirect('/detailHot');
+        return redirect("/detailHot-$id");
     }
 
     /**
@@ -357,8 +357,6 @@ class ResController extends Controller
     {
         $avg_topreadnum = $req->avg_topreadnum;
         $weixin_fans    = $req->weixin_fans;
-        // $weixin_prov    = $req->weixin_prov;
-        $weixin_tags    = $req->weixin_tags;
         $key            = $req->k;
 
         $res = Resource::when($avg_topreadnum, function($query) use ($avg_topreadnum){
@@ -393,7 +391,7 @@ class ResController extends Controller
         })
         ->when($key, function($query) use ($key) {
             $query->where(
-                "Name", "like", $key
+                "Name", "like", "%$key%"
                 );
         })
         ->paginate(30);
