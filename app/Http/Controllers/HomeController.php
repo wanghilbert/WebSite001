@@ -43,6 +43,16 @@ class HomeController extends Controller
 
     }
 
+    public function aboutus()
+    {
+        return view('aboutUs');
+    }
+
+    public function stars()
+    {
+        return view('stars');
+    }
+
     public function detailHot()
     {
         $res = Resource::find(2);
