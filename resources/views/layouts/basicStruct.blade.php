@@ -59,16 +59,16 @@
             <nav class="navbar navbar-default" role="navigation">
                 <div>
                     <ul class="nav navbar-nav">
-                        <li><a href="#"><span class="userlink">首页</span></a></li>
+                        <li><a href="{{ url('/index') }}"><span class="userlink">首页</span></a></li>
                         <li><a href="#">|</a></li>
-                        <li><a href="#"><span class="userlink">娱乐资源</span></a></li>
-                        <li><a href="#"><span class="userlink">资源选择</span></a></li>
-                        <li><a href="#"><span class="userlink">关于我们</span></a></li>
+                        <li><a href="{{ url('/list') }}"><span class="userlink">娱乐资源</span></a></li>
+                        <li><a href="{{ url('/list') }}"><span class="userlink">资源选择</span></a></li>
+                        <li><a href="{{ url('/aboutus') }}"><span class="userlink">关于我们</span></a></li>
                     </ul>
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="userlink">我的订单</span></a></li>
+                        <li><a href="{{ url('/shop/list') }}"><span class="userlink">我的订单</span></a></li>
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}"><span class="userlink">登录</span></a></li>
                             <li><a href="{{ url('/register') }}"><span class="userlink">注册</span></a></li>
@@ -88,7 +88,7 @@
         </div>
         <br /><br /><br /><br /><br />              
         <div class="row" id="footbar" style="background: #555555; color:#FFFFFF;">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: left;padding: 50px 50px 50px 50px;">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1" style="text-align: left;padding: 50px 50px 50px 50px;">
                 <table>
                     <tr>
                         <td style="padding-right: 10px;"><strong>新手指南</strong></td>
@@ -115,7 +115,7 @@
                     <tr>
                         <td style="padding-right: 10px;"><strong>关于</strong></td>
                         <td>
-                            <a class="userlinkfoot" href="#">关于我们</a>
+                            <a class="userlinkfoot" href="{{ url('/aboutus') }}">关于我们</a>
                         </td>
                     </tr>
                     <tr>
@@ -138,7 +138,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align: left;padding-top: 50px;">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: left;padding-top: 50px;">
                 <table>
                     <tr>
                         <td style="padding-right: 10px;"><strong>联系我们</strong></td>

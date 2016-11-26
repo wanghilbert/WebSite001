@@ -19,10 +19,10 @@
 							<li id="contactLabel">
 								<div class="sanjiaoxing"></div>
 								<span class="glyphicon glyphicon-phone-alt"></span>&nbsp;联系我们</li>
-							<li class="">
+							<li id="joinLabel">
 								<div class="sanjiaoxing"></div>
 								<span class="glyphicon glyphicon-bookmark"></span>&nbsp;加入我们</li>
-							<li>
+							<li id="helpCenter">
 								<div class="sanjiaoxing"></div>
 								<span class="glyphicon glyphicon-question-sign"></span>&nbsp;帮助中心</li>
 						</ul>
@@ -71,7 +71,9 @@
 			if ($("#contectUs").is(":hidden")) 
 			{
 				$("#aboutUs").hide();
+				$("#aboutLabel").removeClass("current");
 				$("#contectUs").show();
+				$("#contactLabel").addClass("current");
 			}
 		});	
 		$("#aboutLabel").click(function(){
@@ -79,7 +81,9 @@
 			if ($("#aboutUs").is(":hidden")) 
 			{
 				$("#contectUs").hide();
+				$("#contactLabel").removeClass("current");
 				$("#aboutUs").show();
+				$("#aboutLabel").addClass("current");
 			}
 		});				
 	});

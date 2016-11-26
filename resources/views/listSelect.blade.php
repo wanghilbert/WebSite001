@@ -268,7 +268,7 @@
 								关键词：
 							</div>
 							<div class="fl">
-								<input id="searchInput" type="text" value="微信名称/微信号" style="float:left;width:300px;margin-left:20px;margin-right:20px;">
+								<input id="searchInput" type="text" placeholder="微信名称/微信号" style="float:left;width:300px;margin-left:20px;margin-right:20px;">
 								<button class="btn btn-default fl" onclick="procInputSearch('k')">搜索</button>
 							</div>										
 						</div>
@@ -722,6 +722,7 @@
     		}
     		finalTag=stringBeforeNewTag+newTag;
  		}
+ 		alert(finalTag);
 		window.location = finalTag;		
 	} 
 

@@ -7,9 +7,9 @@
 			<div class="row" style="padding-top: 15px">
 				<form class="bs-example bs-example-form" role="search">
 					<div class="input-group">
-						<input type="text" class="form-control">
+						<input id="mainSearchInput" type="text" class="form-control">
 						<span class="input-group-btn">
-						<button class="btn btn-default">
+						<button class="btn btn-default" onclick="procMainInputSearch('k')">
 								<span class="glyphicon glyphicon-search"></span>
 						</button>
 						</span>
@@ -19,3 +19,17 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function procMainInputSearch(tagType)
+	{
+		var basicHref = window.location.href
+		var hrefArray = basicHref.split('/');
+		var rootHref = hrefArray[2];
+		var nextHref=hrefArray[0]+'/'+hrefArray[1]+'/'+hrefArray[2]+'/'+"list?page=1&"+tagType+'=';
+		var input=$('#mainSearchInput').val();
+		nextHref+=input;	
+		alert(nextHref);
+		window.location = nextHref;
+	}
+</script>
