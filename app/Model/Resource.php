@@ -83,6 +83,20 @@ class Resource extends Model
     	return '';
     }
 
+    public static function filterByArg($range, $key)
+    {
+        $price = explode($key, $range);
+        if (count($price) == 2) {
+            $low = $price[0];
+            $high = $price[1];
+        } else {
+            $low = $price[0];
+            $high = 0;
+        }
+        
+        return [$low, $high];
+    }
+
     public static function getAll() {
     	return self::all();
     }

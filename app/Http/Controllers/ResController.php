@@ -356,14 +356,37 @@ class ResController extends Controller
     public function listIndex(Request $req)
     {
         $avg_topreadnum = $req->avg_topreadnum;
+        $weixin_fans    = $req->weixin_fans;
 
         $res = Resource::when($avg_topreadnum, function($query) use ($avg_topreadnum){
-            $readNum = Resource::filterByArg($avg_topreadnum);
-            $query->where([
-                ["AvgViews", ">=", $readNum[0]],
-                ["AvgViews", "<", $readNum[1]]
-                ]
-                );
+            $readNum = Resource::filterByArg($avg_topreadnum, "-");
+            if ($readNum[1] != "MAX") {
+                $query->where([
+                    ["AvgViews", ">=", $readNum[0]],
+                    ["AvgViews", "<", $readNum[1]]
+                    ]
+                    );
+            } else {
+                $query->where([
+                    ["AvgViews", ">=", $readNum[0]]
+                    ]
+                    );                
+            }
+            
+        })
+        ->when($weixin_fans, function($query) use ($weixin_fans){
+            $fansNum = Resource::filterByArg($weixin_fans, "-");
+            if($fansNum[1] != "MAX")
+            {
+                $query->where([
+                    ["FansNum", ">=", $fansNum[0]],
+                    ["FansNum", "<", $fansNum[1]]
+                    ]);                
+            } else {
+                $query->where([
+                    ["FansNum", ">=", $fansNum[0]]
+                    ]);
+            }
         })
         ->paginate(30);
 

@@ -44,7 +44,7 @@
 										<a id="avg_topreadnum-8w-10w" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','80000-100000')">8万-10万</a>
 									</li>
 									<li>
-										<a id="avg_topreadnum-10w-up" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','100000-0')">10万以上</a>
+										<a id="avg_topreadnum-10w-up" href="javascript:void(0)" onclick="procFilterTag('avg_topreadnum','100000-MAX')">10万以上</a>
 									</li>
 								</ul>
 							</div>										
@@ -63,28 +63,28 @@
 										<a class="hot" id="weixin_fans-0-1w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','0-10000')">1万以下</a>
 									</li>
 									<li>
-										<a id="weixin_fans-1w-5w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','10000-50000')">1万-5万</a>
+										<a id="weixin_fans-1w-5w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','1-5')">1万-5万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-5w-10w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','50000-100000')">5万-10万</a>
+										<a id="weixin_fans-5w-10w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','5-10')">5万-10万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-10w-20w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','100000-200000')">10万-20万</a>
+										<a id="weixin_fans-10w-20w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','10-20')">10万-20万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-20w-40w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','200000-400000')">20万-40万</a>
+										<a id="weixin_fans-20w-40w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','20-40')">20万-40万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-40w-80w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','400000-800000')">40万-80万</a>
+										<a id="weixin_fans-40w-80w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','40-80')">40万-80万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-80w-120w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','800000-1200000')">80万-120万</a>
+										<a id="weixin_fans-80w-120w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','80-120')">80万-120万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-120w-200w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','1200000-2000000')">120万-200万</a>
+										<a id="weixin_fans-120w-200w" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','120-200')">120万-200万</a>
 									</li>
 									<li>
-										<a id="weixin_fans-200w-up" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','2000000-0')">200万以上</a>
+										<a id="weixin_fans-200w-up" href="javascript:void(0)" onclick="procFilterTag('weixin_fans','200-MAX')">200万以上</a>
 									</li>
 								</ul>
 							</div>										
