@@ -121,3 +121,4 @@ Route::get('/select', 'UserController@select'); // Select Res by User
 Route::get('/done', 'UserController@done'); // Delete Selection
 
 Route::get('/filterByTags', 'ResController@filterByTags');
+Route::get('/star','HomeController@test');
