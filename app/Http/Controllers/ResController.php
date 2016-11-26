@@ -18,6 +18,7 @@ class ResController extends Controller
 {
     protected $excelPath = '';
 
+    // private const $MAX = 9999999999;
     /**
      * Test Function, Delete Later
      * @return [type] [description]
@@ -352,10 +353,23 @@ class ResController extends Controller
     // 
     
 
-    public function listIndex()
+    public function listIndex(Request $req)
     {
+        $avg_topreadnum = $req->avg_topreadnum;
+
+        $res = Resource::when($avg_topreadnum, function($query) use ($avg_topreadnum){
+            $readNum = Resource::filterByArg($avg_topreadnum);
+            $query->where([
+                ["AvgViews", ">=", $readNum[0]],
+                ["AvgViews", "<", $readNum[1]]
+                ]
+                );
+        })
+        ->paginate(30);
+
+
         // $res = Resource::take(30)->get();
-        $res = Resource::get();
+        // $res = Resource::paginate(30);
         // dd($res->count());
         return view('listSelect', ['items' => $res]);
     }
@@ -376,8 +390,9 @@ class ResController extends Controller
             $high = 0;
         }
         
-        $res = Resource::filterByFans($low,$high);
-        dd($res);
+        return [$low, $high];
+        // $res = Resource::filterByFans($low,$high);
+        // dd($res);
     }
 
     /**
