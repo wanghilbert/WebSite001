@@ -357,6 +357,9 @@ class ResController extends Controller
     {
         $avg_topreadnum = $req->avg_topreadnum;
         $weixin_fans    = $req->weixin_fans;
+        // $weixin_prov    = $req->weixin_prov;
+        $weixin_tags    = $req->weixin_tags;
+        $key            = $req->k;
 
         $res = Resource::when($avg_topreadnum, function($query) use ($avg_topreadnum){
             $readNum = Resource::filterByArg($avg_topreadnum, "-");
@@ -388,12 +391,12 @@ class ResController extends Controller
                     ]);
             }
         })
+        ->when($key, function($query) use ($key) {
+            $query->where(
+                "Name", "like", $key
+                );
+        })
         ->paginate(30);
-
-
-        // $res = Resource::take(30)->get();
-        // $res = Resource::paginate(30);
-        // dd($res->count());
         return view('listSelect', ['items' => $res]);
     }
 

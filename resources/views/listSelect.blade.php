@@ -206,7 +206,7 @@
 								价格：
 							</div>
 							<div class="" style="float:left;width:80px;height:30px; margin-right:10px;">
-							       <select class="form-control">
+							       <select>
             							<option id="news_position-1" onclick="onlyAddTag('news_position','1')">头条</option>
             							<option id="news_position-2" onclick="onlyAddTag('news_position','2')">非头条</option>
 									</select>
