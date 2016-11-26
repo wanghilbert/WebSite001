@@ -86,6 +86,9 @@ Route::auth();
  */
 /////////////////////////////
 Route::get('/index', 'HomeController@index');
+Route::get('/aboutus', 'HomeController@aboutus');
+Route::get('/stars', 'HomeController@stars');
+
 // Test the data channel to detailhot page.
 Route::get('/detailHot-{ResId}', 'HomeController@detailHot');
 // Route::get('/classify', 'HomeController@classify');
@@ -93,10 +96,10 @@ Route::get('/res/collect-{ResId}', 'ResController@collect');
 
 Route::get('/shop/select-{ResId}-{Option}', 'ResController@putInCart');
 
-Route::get('/shop/list', 'ResController@listItemInCart');
-Route::get('/shop/list/delete-{ResId}', 'ResController@deleteItemFromCart');
+Route::get('/shop/list', 'ResController@listItemInCart')->middleware('auth');
+Route::get('/shop/list/delete-{ResId}', 'ResController@deleteItemFromCart')->middleware('auth');
 
-Route::get('/appointment/select-{id}-{option}', 'ResController@appoint');
+Route::get('/appointment/select-{id}-{option}', 'ResController@appoint')->middleware('auth');
 
 Route::get('/list', 'ResController@listIndex');
 

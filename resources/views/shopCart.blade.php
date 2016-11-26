@@ -18,9 +18,9 @@
 				<div class="cartPanel">
 					<div class="userInfoText" style="margin-top:20px;margin-left:20px;">
 						<b>购物车(</b>
-						<b class="f_red">3</b>
+						<b class="f_red">{{ $count }}</b>
 						<b>/</b>
-						<b class="f_red">30</b>
+						<b class="f_red">{{ $count }}</b>
 						<b>)</b>						
 					</div>
 					<div class="cartTablePanel">
