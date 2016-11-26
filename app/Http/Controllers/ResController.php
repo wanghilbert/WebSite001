@@ -393,7 +393,7 @@ class ResController extends Controller
         })
         ->when($key, function($query) use ($key) {
             $query->where(
-                "Name", "like", $key
+                "Name", "like", "%$key%"
                 );
         })
         ->paginate(30);

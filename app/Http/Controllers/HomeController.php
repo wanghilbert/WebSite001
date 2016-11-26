@@ -53,9 +53,9 @@ class HomeController extends Controller
         return view('stars');
     }
 
-    public function detailHot()
+    public function detailHot($ResId)
     {
-        $res = Resource::find(2);
+        $res = Resource::find($ResId);
         $tags = $res->tags()->get();
 
         return view('detailHot', ['res' => $res, 'tags' => $tags]);

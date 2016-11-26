@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/index');
 });
 
 Route::auth();
@@ -90,7 +90,7 @@ Route::get('/aboutus', 'HomeController@aboutus');
 Route::get('/stars', 'HomeController@stars');
 
 // Test the data channel to detailhot page.
-Route::get('/detailHot', 'HomeController@detailHot');
+Route::get('/detailHot-{ResId}', 'HomeController@detailHot');
 // Route::get('/classify', 'HomeController@classify');
 Route::get('/res/collect-{ResId}', 'ResController@collect');
 
