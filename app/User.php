@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     // Relationship with User
     public function resappointment() {
-        $this->belongsToMany('App\Model\Resource', 'appointments', 'UserId', 'ResId')->withPivot('Date')->withTimestamps();
+        return $this->belongsToMany('App\Model\Resource', 'appointments', 'UserId', 'ResId')->withPivot('Date')->withTimestamps();
     }
 
     public function resselections() {

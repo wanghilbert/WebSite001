@@ -94,12 +94,13 @@ Route::get('/detailHot-{ResId}', 'HomeController@detailHot');
 // Route::get('/classify', 'HomeController@classify');
 Route::get('/res/collect-{ResId}', 'ResController@collect');
 
-Route::get('/shop/select-{ResId}-{Option}', 'ResController@putInCart');
-
+Route::get('/shop/select-{ResId}-{Option}', 'ResController@putInCart')->middleware('auth');
 Route::get('/shop/list', 'ResController@listItemInCart')->middleware('auth');
 Route::get('/shop/list/delete-{ResId}', 'ResController@deleteItemFromCart')->middleware('auth');
 
 Route::get('/appointment/select-{id}-{option}', 'ResController@appoint')->middleware('auth');
+Route::get('/appointment/list', 'ResController@listItemAppoint')->middleware('auth');
+Route::get('/appointment/list/delete-{ResId}', 'ResController@deleteItemFromAppoint')->middleware('auth');
 
 Route::get('/list', 'ResController@listIndex');
 

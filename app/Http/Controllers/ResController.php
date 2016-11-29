@@ -11,6 +11,7 @@ use App\Model\Tag as Tag;
 use App\Model\Relation as Relation;
 use App\Model\Region as Region;
 use App\User as User;
+use Illuminate\Support\Facades\Auth;
 
 use Excel;
 
@@ -266,7 +267,7 @@ class ResController extends Controller
     public function putInCart($id, $option)
     {
         // $user = Auth::user();
-        $user = User::find(1);
+        $user = Auth::user();
 
         $itemsInCart = $user->resselections()->get();
         
@@ -298,8 +299,9 @@ class ResController extends Controller
      */
     public function listItemInCart()
     {
-        $user = User::find(1);
-        $item = Resource::find(7);
+        // $user = User::find(1);
+        $user = Auth::user();
+
         $res = $user->resselections()->get();
         $count = $res->count();
         $sum = 0;
@@ -312,7 +314,7 @@ class ResController extends Controller
     public function deleteItemFromCart($id)
     {
         // $user = Auth::user();
-        $user = User::find(1);
+        $user = Auth::user();
         $resInUser = $user->resselections();
         if ($resInUser->find($id) != NULL) {
             $res = Resource::find($id);
@@ -325,13 +327,13 @@ class ResController extends Controller
 
     public function appoint($id, $option)
     {
-        $user = User::find(1);
+        $user = Auth::user();
 
         $itemsInCart = $user->resappointment()->get();
         
         foreach ($itemsInCart as $value) {
             if ($value->pivot->ResId == $id) {
-                return redirect('/detailHot');
+                return redirect("/detailHot-$id");
                 // dd("已存在");
             }
         }
@@ -344,9 +346,37 @@ class ResController extends Controller
             $price = $res->NonHeadLinePrice;
             $myOption = False;
         }
-        $user->resappointment()->attach($res, ['Option' => $myOption, 'Price' => $price]);
+        $user->resappointment()->attach($res, ['Date' => '2016-11-11']);
         // dd($user->resappointment()->get());
-        return redirect('/detailHot');
+        return redirect("/detailHot-$id");
+    }
+
+    /**
+     * List the Res in the shop cart
+     * @return [type] [description]
+     */
+    public function listItemAppoint()
+    {
+        $user = Auth::user();
+
+        $res = $user->resappointment()->get();
+        $count = $res->count();
+        $sum = 0;
+        return view('shopCart', ['items' => $res, 'count' => $count, 'sumprice' => $sum]);
+    }
+
+    public function deleteItemFromAppoint($id)
+    {
+        $user = Auth::user();
+
+        $resInUser = $user->resappointment();
+        if ($resInUser->find($id) != NULL) {
+            $res = Resource::find($id);
+            $user->resappointment()->detach($res);
+        } else {
+            dd('This Res is Not in Shop List!');
+        }
+        return redirect('/shop/list');
     }
     // Test Filter
     // 
@@ -358,8 +388,19 @@ class ResController extends Controller
         $avg_topreadnum = $req->avg_topreadnum;
         $weixin_fans    = $req->weixin_fans;
         $key            = $req->k;
+        $tags           = $req->weixin_tags;
 
-        $res = Resource::when($avg_topreadnum, function($query) use ($avg_topreadnum){
+        // $res = Resource::whereHas('tags', function($query){
+        //     $query->whereIn('TagId', [1,2]);
+        // })
+        // ->get();
+        // $res = Resource::has('tags', '>=', 2)->paginate(30);
+        $res = Resource::whereHas('tags', function($query) use ($tags){
+            if ($tags != null) {
+                $query->where('tags.TagId', '=', $tags);
+            }
+        })
+        ->when($avg_topreadnum, function($query) use ($avg_topreadnum){
             $readNum = Resource::filterByArg($avg_topreadnum, "-");
             if ($readNum[1] != "MAX") {
                 $query->where([

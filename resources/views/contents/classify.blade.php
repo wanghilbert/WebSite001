@@ -9,7 +9,7 @@
 			<div class="row" style="margin-top: 20px; margin-left:20px;">
 				
 				<a class="classbutton" id="weixin_tags-1" role="button" href="list?page=1&weixin_tags=1" >影视</a>
-				<div id="popover-title" class="hide">
+<!-- 				<div id="popover-title" class="hide">
 					<label>加入我的列表 </label>
 					<input type="checkbox">
 				</div>
@@ -34,7 +34,7 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
+				</div> -->
 
 				<a class="classbutton" id="weixin_tags-2" role="button" href="list?page=1&weixin_tags=2" >娱乐</a>
 				<a class="classbutton" id="weixin_tags-3" role="button" href="list?page=1&weixin_tags=3" >时尚</a>

@@ -11,13 +11,13 @@
 			<!-- 轮播（Carousel）项目 -->
 			<div class="carousel-inner">
 				<div class="item active" style="padding-left: 10px;">
-					<img src="/bootstrap/img/1.png" alt="First slide" width="1149">
+					<a href="/list"><img src="/bootstrap/img/1.png" alt="First slide" width="1149"></a>
 				</div>
 				<div class="item" style="padding-left: 10px;">
-					<img src="/bootstrap/img/2.png" alt="Second slide" width="1149">
+					<a href="/list"><img src="/bootstrap/img/2.png" alt="Second slide" width="1149"></a>
 				</div>
 				<div class="item" style="padding-left: 10px;">
-					<img src="/bootstrap/img/3.png" alt="Third slide" width="1149">
+					<a href="/list"><img src="/bootstrap/img/3.png" alt="Third slide" width="1149"></a>
 				</div>
 			</div>
 			<!-- 轮播（Carousel）导航 -->
