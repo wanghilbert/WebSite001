@@ -31,5 +31,6 @@
 		nextHref+=input;	
 		alert(nextHref);
 		window.location = nextHref;
+		return false;
 	}
 </script>

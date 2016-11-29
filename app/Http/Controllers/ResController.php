@@ -436,11 +436,6 @@ class ResController extends Controller
                 );
         })
         ->paginate(30);
-
-
-        // $res = Resource::take(30)->get();
-        // $res = Resource::paginate(30);
-        // dd($res->count());
         return view('listSelect', ['items' => $res]);
     }
 
