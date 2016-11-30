@@ -347,7 +347,6 @@ class ResController extends Controller
             $myOption = False;
         }
         $user->resappointment()->attach($res, ['Date' => '2016-11-11']);
-        // dd($user->resappointment()->get());
         return redirect("/detailHot-$id");
     }
 

@@ -9,7 +9,7 @@
 					<div class="input-group">
 						<input id="mainSearchInput" type="text" class="form-control">
 						<span class="input-group-btn">
-						<button class="btn btn-default" onclick="procMainInputSearch('k')">
+						<button class="btn btn-default" onclick="return procMainInputSearch('k')">
 								<span class="glyphicon glyphicon-search"></span>
 						</button>
 						</span>
@@ -26,11 +26,10 @@
 		var basicHref = window.location.href
 		var hrefArray = basicHref.split('/');
 		var rootHref = hrefArray[2];
-		var nextHref=hrefArray[0]+'/'+hrefArray[1]+'/'+hrefArray[2]+'/'+"list?page=1&"+tagType+'=';
+		var nextHref="list?page=1&"+tagType+'=';
 		var input=$('#mainSearchInput').val();
 		nextHref+=input;	
-		alert(nextHref);
-		window.location = nextHref;
+		window.location.href = nextHref;
 		return false;
 	}
 </script>
