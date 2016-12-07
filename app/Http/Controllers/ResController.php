@@ -435,7 +435,9 @@ class ResController extends Controller
                 );
         })
         ->paginate(30);
-        return view('listSelect', ['items' => $res]);
+
+        $tags=Tag::all();
+        return view('listSelect', ['items' => $res, 'tags' => $tags]);
     }
 
     /**

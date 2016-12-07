@@ -107,7 +107,7 @@
 	                        <li><a href="{{ url('/register') }}"><span class="userlink">注册</span></a></li>
                     	@else
 	                        <li>
-	                        	<a href="{{ url('/login') }}"><span class="userlink">{{ Auth::user()->UserName }}</span></a>
+	                        	<span class="userlink">{{ Auth::user()->UserName }}</span></a>
 	                        </li>
 	                        <li><a href="{{ url('/logout') }}"><span class="userlink">注销</span></a></li>
                     	@endif	
