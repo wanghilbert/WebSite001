@@ -68,7 +68,8 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ url('/shop/list') }}"><span class="userlink">我的订单</span></a></li>
+                        <li><a href="{{ url('/appointment/list') }}"><span class="userlink">我的预约</span></a></li>
+                        <li><a href="{{ url('/shop/list') }}"><span class="userlink">我的购物车</span></a></li>
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}"><span class="userlink">登录</span></a></li>
                             <li><a href="{{ url('/register') }}"><span class="userlink">注册</span></a></li>

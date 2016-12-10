@@ -1,4 +1,4 @@
-@extends('layouts.website')
+@extends('layouts.basicStruct')
 
 @section('section')
 	<div class="container" style="width: 800px;margin:0 auto;">
