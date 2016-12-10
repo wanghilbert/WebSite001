@@ -6,9 +6,17 @@
 					按分类浏览
 				</div>
 			</div>
-			<div class="row" style="margin-top: 20px; margin-left:20px;">
-				
-				<a class="classbutton" id="weixin_tags-1" role="button" href="list?page=1&weixin_tags=1" >影视</a>
+			<!-- <div class="row" style="margin-top: 20px; margin-left:20px;"> -->
+				@foreach($tags as $tag)
+					@if ($tag->TagId % 8 == 0)
+					<div class="row" style="margin-top: 20px; margin-left:20px;">
+					@endif
+					<a class="classbutton" id="weixin_tags-{{ $tag->TagId }}" role="button" href="list?page=1&weixin_tags={{ $tag->TagId }}" >{{ $tag->Name }}</a>
+					@if ($tag->TagId % 8 == 7)
+					</div>
+					@endif
+				@endforeach
+				<!-- <a class="classbutton" id="weixin_tags-1" role="button" href="list?page=1&weixin_tags=1" >影视</a> -->
 <!-- 				<div id="popover-title" class="hide">
 					<label>加入我的列表 </label>
 					<input type="checkbox">
@@ -36,7 +44,7 @@
 					</table>
 				</div> -->
 
-				<a class="classbutton" id="weixin_tags-2" role="button" href="list?page=1&weixin_tags=2" >娱乐</a>
+	<!-- 			<a class="classbutton" id="weixin_tags-2" role="button" href="list?page=1&weixin_tags=2" >娱乐</a>
 				<a class="classbutton" id="weixin_tags-3" role="button" href="list?page=1&weixin_tags=3" >时尚</a>
 				<a class="classbutton" id="weixin_tags-4" role="button" href="list?page=1&weixin_tags=4" >美妆</a>
 				<a class="classbutton" id="weixin_tags-5" role="button" href="list?page=1&weixin_tags=5" >体育</a>
@@ -60,7 +68,7 @@
 					<a class="classbutton" role="button" href="#">旅行</a>
 					<a class="classbutton" role="button" href="#">教育</a>
 					<a class="classbutton" role="button" href="#">文化</a>
-				</div>
+				</div> -->
 		</div>
 
 <script type="text/javascript">
