@@ -384,7 +384,7 @@ class ResController extends Controller
 
     public function listIndex(Request $req)
     {
-        dd($req);
+        
         $avg_topreadnum = $req->avg_topreadnum;
         $weixin_fans    = $req->weixin_fans;
         $key            = $req->k;
@@ -438,6 +438,7 @@ class ResController extends Controller
         ->paginate(30);
 
         $tags=Tag::all();
+        
         return view('listSelect', ['items' => $res, 'tags' => $tags]);
     }
 
