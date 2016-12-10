@@ -361,7 +361,7 @@ class ResController extends Controller
         $res = $user->resappointment()->get();
         $count = $res->count();
         $sum = 0;
-        return view('shopCart', ['items' => $res, 'count' => $count, 'sumprice' => $sum]);
+        return view('appointment', ['items' => $res, 'count' => $count, 'sumprice' => $sum]);
     }
 
     public function deleteItemFromAppoint($id)
@@ -375,7 +375,7 @@ class ResController extends Controller
         } else {
             dd('This Res is Not in Shop List!');
         }
-        return redirect('/shop/list');
+        return redirect('/appointment/list');
     }
     // Test Filter
     // 
@@ -384,6 +384,7 @@ class ResController extends Controller
 
     public function listIndex(Request $req)
     {
+        dd($req);
         $avg_topreadnum = $req->avg_topreadnum;
         $weixin_fans    = $req->weixin_fans;
         $key            = $req->k;
