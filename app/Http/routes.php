@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -16,63 +17,6 @@ Route::get('/', function () {
 });
 
 Route::auth();
-
-// Route::get('/home', 'HomeController@index');
-
-
-// /**
-//  * User Management
-//  */
-// // Route::get('/user/userInfo', 'UserController@userInfo');
-
-// Route::post('/user/registerUser', 'UserController@registerUser');
-// Route::get('/user/registerUser', 'UserController@registerUser');
-
-// Route::get('/user/show', 'UserController@show');
-
-// Route::delete('/user/delete/{user}', 'UserController@delete');
-
-// Route::post('/user/edit/permission/{user}', 'UserController@permission');
-
-// Route::post('/user/edit/pwd/{user}', 'UserController@password');
-// /**
-//  * Resource Management
-//  */
-// Route::get('/res/index', 'ResController@index');
-
-// Route::get('/res/edit', 'ResController@editIndex');
-
-// Route::get('/res/show', 'ResController@show');
-
-// Route::post('/res/add', 'ResController@add');
-
-// Route::delete('/res/delete/{res}', 'ResController@delete');
-
-// Route::get('/res/edit/{res}', 'ResController@editPage');
-
-// Route::post('/res/edit/update/{res}', 'ResController@update');
-
-// // Excel Data
-// Route::get('/excel/index', 'ExcelController@index');
-
-// Route::post('/excel/export', 'ExcelController@export');
-
-
-// // Test
-// Route::get('/test', 'ResController@testLogin');
-
-// //yw test
-// Route::get('/yw_test',  function () {
-//     return view('layouts.basicStruct');
-// });
-
-// Route::get('/detailHot',  function () {
-//     return view('detailHot');
-// });
-
-// Route::get('/news/create', function() {
-// 	return view('news.create');
-// });
 
 /*
 1. Excel Operation

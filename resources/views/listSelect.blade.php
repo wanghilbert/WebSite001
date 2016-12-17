@@ -326,7 +326,7 @@
 									<input type="checkbox" name="selectThis">
 								</td>
 								<td>
-									<a href="/detailHot-{{ $item->ResId }}" ><h6>{{ $item->Name }}</h6></a>
+									<a href="/detailHot-{{ $item->ResId }}" target="_blank"><h6>{{ $item->Name }}</h6></a>
 									<h6>{{ $item->WeChat }}</h6>
 								</td>
 								<td>{{ $item->AvgViews }}</td>

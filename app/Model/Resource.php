@@ -55,7 +55,7 @@ class Resource extends Model
 
     // Relationship with User
     public function userappointment() {
-        $this->belongsToMany('App\User', 'appointments', 'ResId', 'UserId')->withPivot('Date')->withTimestamps();
+        $this->belongsToMany('App\User', 'appointments', 'ResId', 'UserId')->withPivot('Date', 'Option')->withTimestamps();
     }
 
     public function userselections() {

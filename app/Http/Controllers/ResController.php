@@ -165,7 +165,7 @@ class ResController extends Controller
                         $region->resources()->save($res);
                         $res->tags()->attach($tagItem);
                     } else {
-                        dd($res);
+                        // dd($res);
                         $tags = $res->tags()->get();
                         $flag = false;
                         foreach ($tags as $value) {
@@ -346,7 +346,7 @@ class ResController extends Controller
             $price = $res->NonHeadLinePrice;
             $myOption = False;
         }
-        $user->resappointment()->attach($res, ['Date' => '2016-11-11']);
+        $user->resappointment()->attach($res, ['Date' => '2016-11-11', 'Option' => $myOption]);
         return redirect("/detailHot-$id");
     }
 
@@ -361,6 +361,13 @@ class ResController extends Controller
         $res = $user->resappointment()->get();
         $count = $res->count();
         $sum = 0;
+        foreach ($res as $value) {
+            if ($value->pivot->Option) {
+                $sum += $value->HeadLinePrice;
+            } else {
+                $sum += $value->NonHeadLinePrice;
+            }
+        }
         return view('appointment', ['items' => $res, 'count' => $count, 'sumprice' => $sum]);
     }
 

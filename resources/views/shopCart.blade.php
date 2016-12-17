@@ -52,12 +52,18 @@
 											<input type="checkbox" name="selectone">
 										</td>
 										<td>
-											<div>{{ $item->Name }}</div>
-											<div>{{ $item->WeChat }}</div>
+											<a href="/detailHot-{{ $item->ResId }}" target="_blank" ><div>{{ $item->Name }}</div></a>
+											<a href="/detailHot-{{ $item->ResId }}" target="_blank"><div>{{ $item->WeChat }}</div></a>
 										</td>
-										<td>										
-											<div class="headSelect">头条</div>
-											<div class="nonHeadSelect">非头条</div>
+										<td>
+											@if ($item->pivot->Option == 1)
+												<div class="headSelect">头条</div>
+												<div class="nonHeadSelect">非头条</div>
+											@else
+												<div class="nonHeadSelect">头条</div>
+												<div class="headSelect">非头条</div>
+											@endif									
+											
 										</td>
 										<td>
 											<div class="priceValue">{{ $item->HeadLinePrice }}</div>
