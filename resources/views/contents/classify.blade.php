@@ -8,11 +8,11 @@
 			</div>
 			<!-- <div class="row" style="margin-top: 20px; margin-left:20px;"> -->
 				@foreach($tags as $tag)
-					@if ($tag->TagId % 8 == 0)
-					<div class="row" style="margin-top: 20px; margin-left:20px;">
+					@if (($tag->TagId - 1) % 8 == 0)
+					<div class="row" style="margin-top: 15px; margin-left:20px;">
 					@endif
 					<a class="classbutton" id="weixin_tags-{{ $tag->TagId }}" role="button" href="list?page=1&weixin_tags={{ $tag->TagId }}" >{{ $tag->Name }}</a>
-					@if ($tag->TagId % 8 == 7)
+					@if (($tag->TagId - 1) % 8 == 7)
 					</div>
 					@endif
 				@endforeach
