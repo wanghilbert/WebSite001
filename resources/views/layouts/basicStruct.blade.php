@@ -61,7 +61,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/index') }}"><span class="userlink">首页</span></a></li>
                         <li><a href="#">|</a></li>
-                        <li><a href="{{ url('/list') }}"><span class="userlink">娱乐资源</span></a></li>
+                        <li><a href="{{ url('/stars') }}"><span class="userlink">娱乐资源</span></a></li>
                         <li><a href="{{ url('/list') }}"><span class="userlink">资源选择</span></a></li>
                         <li><a href="{{ url('/aboutus') }}"><span class="userlink">关于我们</span></a></li>
                     </ul>
