@@ -83,7 +83,7 @@
                         		</div>
                         		<div>
                             		<div class="sm fl">为保证您的订单能够顺利执行，请与客服预约档期无误后确认预约</div>
-                            		<a target="_blank" href="#"><img src="/bootstrap/img\image-6.png" alt="点击这里给我发消息" title="点击这里给我发消息" border="0"></a>
+                            		<a target="_blank" href="#"><img src="/bootstrap/img/image-6.png" alt="点击这里给我发消息" title="点击这里给我发消息" border="0"></a>
                         		</div>
                         		<br />
                         		<div class="info_button clearFix">
